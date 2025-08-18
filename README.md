@@ -1,3 +1,11 @@
+# Notice 
+
+Please make sure you read everything before you Enter my DM or ask questions in the group....if you don't understand anything research....that's why google and chat gpt is availabe....in summary...just research if you don't understand any thing. Also please make sure your commit messages are good..... 
+
+
+
+
+
 # The structure 
 
 
