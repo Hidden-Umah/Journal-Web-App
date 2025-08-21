@@ -69,6 +69,9 @@ Images → Graphics, icons, and logos used across the site.
 
 Django serves these files using its built-in static files app during development and collects them into a single location for production (via the collectstatic command).
 
+## 📂 style-guide/
+
+This folder contains the UI/UX design resources, including the recommended fonts and color palette. Please ensure that any styling changes align with these guidelines to maintain design consistency.
 
 1. ### manage.py
 manage.py
