@@ -31,6 +31,45 @@ Version Control: Git + GitHub
     └── wsgi.py 
 
 
+journal_app/
+│
+├── static/                # Holds static assets (CSS, JS, Images)
+│   ├── css/               # Stylesheets
+│   │   └── style.css
+│   ├── js/                # JavaScript files
+│   │   └── script.js
+│   └── images/            # Images & icons
+│       └── logo.png
+│
+└── templates/             # HTML templates
+    ├── base.html          # Base template (layout)
+    └── home.html          # Example page
+
+
+
+
+
+## 📂 templates/
+
+The templates/ folder stores all the HTML files that define the structure of web pages. Django uses its template engine to combine these files with data from views and models, allowing you to generate dynamic content.
+Each file inside templates/ is a standard HTML file but may also contain Django Template Language (DTL) tags like {% block %}, {% extends %}, and {{ variable }} for rendering dynamic values.
+Templates encourage reusability through template inheritance (e.g., base.html can define the general layout, and other pages like home.html or about.html can extend it).
+Example usage:
+base.html → main layout (navigation, footer, CSS/JS links).
+home.html → content section for the homepage.
+contact.html → page for a contact form.
+This separation keeps HTML files organized and ensures consistency across the entire site.
+
+## 📂 static/
+
+The static/ folder contains all the static assets that are not generated dynamically but are essential for the frontend. These include:
+CSS → Stylesheets that control the look and feel of the website.
+JavaScript → Client-side scripts that add interactivity (e.g., form validation, animations).
+Images → Graphics, icons, and logos used across the site.
+
+Django serves these files using its built-in static files app during development and collects them into a single location for production (via the collectstatic command).
+
+
 1. ### manage.py
 manage.py
 
