@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+</head>
+<body>
+    <!-- the whole screen  -->
+    <section class="firstSection">
+
+        <!-- the box inwhich all the elements reside -->
+        <div class="mainBox">
+
+               <!-- the side pannel at the left -->
+            <div class="sidePanel">
+
+            </div>
+
+
+            <div class="generalInfo">
+                <div class="heading">
+                    <h2>Welcome </h2>
+
+                </div>
+                <div class="stats">
+                    <div class="users">
+                        <div class="active"></div>
+                        <div class="journals"></div>
+                        <div class="joined"></div>
+
+
+                    </div>
+                    <div class="admins"></div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="{% static 'dashboard/js/script.js' %}"></script>
+</body>
+</html>

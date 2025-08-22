@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.firstSection {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(212, 211, 211);
+}
+
+.mainBox {
+    display: flex;
+    justify-content: space-between;
+    
+    
+
+}
+
+.sidePanel {
+    width: 10%;
+    height: 95vh;
+    background-color: white;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+.generalInfo {
+    display: flex;
+    align-items: center;
+    flex-direction:column ;
+    width: 80%;
+    height: 95vh;
+    margin-top: 15px;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+
+.heading {
+    height: 40px;
+    width: 100%;
+    background-color:  rgb(212, 211, 211);
+
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 50%;
+    border-radius: 16px;
+    margin-top: 20px;
+    row-gap: 15px;
+}
+
+.users {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 50%;
+    column-gap: 10px;
+    border-radius: 16px;    
+}
+
+
+.admins {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+   
+    
+}
+
+.active {
+    width: 33%;
+    height: 100%;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.joined{
+    width: 33%;
+    height: 100%;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.journals{
+    width: 33%;
+    height: 100%;
+    background-color: white;
+    border-radius: 12px;
+}
