@@ -146,7 +146,6 @@ body {
     transform: translateY(0);
 }
 
-/* Hero Image Styles */
 .hero-image {
     display: flex;
     justify-content: center;
