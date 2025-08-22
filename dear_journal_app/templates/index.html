@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearJournal - Your Private Online Journal</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}">
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn-signin">Sign in</button>
+                    <button class="btn-signup">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                           <strong> Your private<br>
+                            100% customizable<br>
+                            online journal.</strong>
+                        </h1>
+                        <p class="hero-subtitle">Loved by millions of students worldwide</p>
+                        <button class="btn-cta">
+                            Start your free journal now →
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="{% static 'images/woman.jpg' %}" alt="A happy soul using DEARJOURNAL" class="hero-img">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
