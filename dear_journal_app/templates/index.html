@@ -26,7 +26,11 @@
 
 
                     <button class="btn-signin">Sign in</button>
-                    <button class="btn-signup">Sign up</button>
+                    <!-- Redirecting sign up button to signup.html using django -->
+                    <a href="{% url 'signup' %}">
+                        <button class="btn-signup">Sign up</button>  
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -38,20 +42,23 @@
             <div class="hero">
                 <div class="hero-content">
                     <div class="hero-text">
+                        <!-- Got rid of the "strong" and made the font-weight bold instead. 
+                        Defined h1 fonts and sizes in index.css 
+                        Also got rid of all <br> and defined max width on .hero-title css
+                        -->
                         <h1 class="hero-title">
-                           <strong> Your private<br>
-                            100% customizable<br>
-                            online journal.</strong>
+                            Your private 100% customizable online journal.
                         </h1>
                         <p class="hero-subtitle">Loved by millions of students worldwide</p>
-                        <button class="btn-cta">
-                            Start your free journal now →
-                        </button>
+                        <!-- Redirecting sign up button to signup.html using django on next line -->
+                        <a href="{% url 'signup' %}">
+                            <button class="btn-cta">Start your free journal now →</button>
+                        </a>                        
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="{% static 'images/woman.jpg' %}" alt="A happy soul using DEARJOURNAL" class="hero-img">
+                        <img src="{% static 'images/woman.jpg' %}" alt="Woman journaling at modern desk with laptop and coffee" class="hero-img">
                         <div class="image-overlay"></div>
                     </div>
                 </div>
