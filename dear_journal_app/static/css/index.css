@@ -12,7 +12,7 @@
 
 h1 {
     font-family: Playfair Display, serif;
-    font-size: 64px;
+    font-size: 58px;
     font-weight: bold;
 }
 
@@ -120,6 +120,7 @@ body {
     line-height: 1.1;
     margin-bottom: 30px;
     letter-spacing: -1px;
+    max-width: 380px;
 }
 
 .hero-subtitle {
