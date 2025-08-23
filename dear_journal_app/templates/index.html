@@ -26,7 +26,11 @@
 
 
                     <button class="btn-signin">Sign in</button>
-                    <button class="btn-signup">Sign up</button>
+                    <!-- Redirecting sign up button to signup.html using django -->
+                    <a href="{% url 'signup' %}">
+                        <button class="btn-signup">Sign up</button>  
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -44,9 +48,10 @@
                             online journal.</strong>
                         </h1>
                         <p class="hero-subtitle">Loved by millions of students worldwide</p>
-                        <button class="btn-cta">
-                            Start your free journal now →
-                        </button>
+                        <!-- Redirecting sign up button to signup.html using django on next line -->
+                        <a href="{% url 'signup' %}">
+                            <button class="btn-cta">Start your free journal now →</button>
+                        </a>                        
                     </div>
                 </div>
                 <div class="hero-image">
