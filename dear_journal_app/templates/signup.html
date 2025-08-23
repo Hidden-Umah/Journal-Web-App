@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <!-- Linking the logo to the homepage -->
+                    <a href="{% url 'landing' %}">
+                        <img src="{% static 'images/logo.png' %}">
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                     <button class="btn-signin">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="signup-container">
         <h2>Create Account</h2>
         <form action="/signup" method="POST">

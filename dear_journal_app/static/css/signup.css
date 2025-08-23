@@ -1,62 +1,127 @@
- /* Imported fonts */
- @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); /*Playfair font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); /*Montseratt*/
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
- 
- 
- body {
-            font-family: Montserrat, Arial, sans-serif;
-            background: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .signup-container {
-            background: #fff;
-            padding: 2rem 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            width: 350px;
-        }
-        .signup-container h2 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .btn {
-            width: 100%;
-            padding: 0.7rem;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
-        .signin-link {
-            text-align: center;
-            margin-top: 1rem;
-        }
-        .signin-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .signin-link a:hover {
-            text-decoration: underline;
-        }
+/* ===== Global Styles ===== */
+body {
+    font-family: Montserrat, Arial, sans-serif;
+    background: #daf0ee;
+    margin: 0; /* reset default body margin */
+}
+
+/* ===== Layout Container ===== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.header {
+    background: #048ba8;
+    padding: 20px 0;
+    position: relative;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 20px; 
+    width: auto;
+}
+
+/* ===== Auth Buttons ===== */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-signin {
+    display: inline-block;   /* works for <a> or <button> */
+    text-decoration: none;   /* remove link underline */
+    background: #202030;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-signin:hover {
+    background: #111827;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Signup Form ===== */
+.signup-container {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 350px;
+
+    /* center form below header */
+    margin: 2rem auto;
+}
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button */
+.btn {
+    width: 100%;
+    padding: 0.7rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Signin link */
+.signin-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.signin-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
+}

@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
    
@@ -44,11 +44,9 @@ body {
     align-items: center;
 }
 
-.logo h1 {
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 1px;
+.logo img {
+    height: 20px; 
+    width: auto;
 }
 
 .auth-buttons {
