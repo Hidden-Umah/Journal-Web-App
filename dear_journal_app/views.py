@@ -7,5 +7,6 @@ def landing (request):
     return render(request,"index.html")
 
 #  the dashboard
+@login_required
 def dashboard_view(request):
     return render(request,"dashboard/dashboard.html")
