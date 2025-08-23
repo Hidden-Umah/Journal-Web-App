@@ -46,7 +46,7 @@
     justify-content: space-around;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     flex-direction:column ;
-    background-image: url('https://i.pinimg.com/1200x/4d/d2/14/4dd214bf15d4a83a88926b314c869210.jpg');
+    background-image: url("../images/gears.jpeg");
 }
 
 .Lform:hover {
