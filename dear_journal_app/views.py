@@ -13,6 +13,11 @@ def landing (request):
 def signup(request):
     return render(request, "signup.html")
 
+#Sign in view
+
+def signin(request):
+    return render(request, "signin.html")
+
 #  the dashboard
 @login_required
 def dashboard_view(request):
