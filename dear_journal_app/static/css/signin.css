@@ -1,0 +1,81 @@
+
+body{
+    font-family: Montserrat(sans-serif,modern and readable);
+    font-size:  17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+.signin-container{
+    background:#fff;
+    padding: 2rem 2.5rem;
+    border-radius: 8px;
+    width: 350px;
+    min-height: 450px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1) ;
+    
+}
+h2{
+    display: flex;
+    text-align: center;
+    margin-bottom: 24px;
+    justify-content: center;
+    
+
+}
+.form-group{
+    margin-bottom: 16px;
+}
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+
+}
+.form-group input{
+    justify-content: center;
+    padding: 8px;
+    width: 345px;
+    border-radius: 7px;
+    border:1px solid #ccc ;
+
+
+
+}
+.signin-btn{
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color :#007bff;
+    color:white ;
+    justify-content: center;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+.signin-btn:hover{
+    background:#0056b3;
+}
+.extra{
+    text-align: center;
+    margin-top: 16px;
+
+}
+.extra a{
+    color: #007bff;
+    text-decoration: none;
+}
+.extra a:hover{
+    text-decoration: underline;
+}
+
+
+
+   
+
+
+
+
+
+

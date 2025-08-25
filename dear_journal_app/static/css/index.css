@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
    
@@ -118,7 +118,7 @@ body {
     line-height: 1.1;
     margin-bottom: 30px;
     letter-spacing: -1px;
-    max-width: 380px;
+    max-width: 480px;
 }
 
 .hero-subtitle {
@@ -163,16 +163,10 @@ body {
 .image-container {
     position: relative;
     width: 100%;
-    max-width: 500px;
-    border-radius: 16px;
+    max-width: 900px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
-}
-
-.image-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
 }
 
 .hero-img {
