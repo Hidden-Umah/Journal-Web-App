@@ -6,13 +6,14 @@
 
 .firstSection {
     width: 100%;
-    height: 100vh;
+    height: auto; 
     background-color: rgb(212, 211, 211);
 }
 
 .mainBox {
     display: flex;
     justify-content: space-between;
+    height: auto;
     
     
 
@@ -115,6 +116,12 @@
     border-top-right-radius: 8px;
     
 }
+
+.anoyinglinks{
+    text-decoration: none;
+
+}
+
 .team {
     width: 100%;
     height: 45%;
@@ -158,7 +165,7 @@
     width: 90%;
     border: none;
     border-radius: 5px;
-    height: 30px;
+    height: auto; /* Changed from 30px to auto */
     background-color: white;
 
 }

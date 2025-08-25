@@ -28,20 +28,18 @@
         </div>
 
         <div class="generalInfo">
-            
           <div class="heading">
             <h2>Database</h2>
           </div>
           <div class="stats">
             <div class="legend">
-                <div class="circle1"></div>
-                
-                <h1>Registered Admins</h1>
+              <div class="circle1"></div>
 
-                <div class="circle2"></div>
+              <h1>Registered Admins</h1>
+
+              <div class="circle2"></div>
             </div>
-
-
+    <!--  table for the backends -->
             <table>
               <tr>
                 <th>ID</th>
@@ -65,12 +63,49 @@
               {% endfor %}
             </table>
 
-            
+            <!-- this is for frontends  -->
+            <div class="legend">
+              <div class="circle1"></div>
+
+              <h1>Registered Frontend Devs</h1>
+
+              <div class="circle2"></div>
+            </div>
+            <table class="table table-bordered table-hover">
+              <thead class="table-dark">
+                <tr>
+                  <th>Username</th>
+                  <th>Bio</th>
+                  <th>Skills</th>
+                  <th>Profile Picture</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for dev in developers %}
+                <tr>
+                  <td>{{ dev.username }}</td>
+                  <td>{{ dev.bio }}</td>
+                  <td>{{ dev.skills }}</td>
+                  <td>
+                    {% if dev.profile_picture %}
+                    <img
+                      src="{{ dev.profile_picture.url }}"
+                      alt="Profile Pic"
+                      width="50"
+                    />
+                    {% else %} No Image {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
+      
     </section>
 
-    <p><a href="{% url 'dashboard' %}">⬅ Back to Dashboard</a></p>
+    
   </body>
 </html>
