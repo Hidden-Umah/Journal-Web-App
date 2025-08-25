@@ -22,8 +22,10 @@
                      <!-- Added a seperate unseen button for admins -->
                     <button class="admin"></button>
 
+                    <a href="{% url 'signin' %}">
+                        <button class="btn-signin">Sign in</button>
+                    </a>
 
-                    <button class="btn-signin">Sign in</button>
                     <!-- Redirecting sign up button to signup.html using django -->
                     <a href="{% url 'signup' %}">
                         <button class="btn-signup">Sign up</button>  

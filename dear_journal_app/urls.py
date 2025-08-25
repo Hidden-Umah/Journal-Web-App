@@ -25,9 +25,14 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
 
     # Clients dashboard page
-    path("dashboard/clients/", views.clients, name = 'clients')
+    path("dashboard/clients/", views.clients, name = 'clients'),
 
 
 
-    ]
+    
 
+        path("signup/", views.signup, name="signup"),
+    
+    #Sign in page
+    path("signin/", views.signin, name="signin")
+]
