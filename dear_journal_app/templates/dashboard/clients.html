@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/clients.css' %}">
+    <title>Clients</title>
 </head>
 <body>
-    <h1> this is for clients</h1>
+        <!-- the whole screen  -->
+    <section class="firstSection">
+
+        <!-- the box inwhich all the elements reside -->
+        <div class="mainBox">
+
+               <!-- the side pannel at the left -->
+            <div class="sidePanel">
+                <div class="locations">
+
+
+                    <div class="company">
+                        <div class="dj"></div>
+                        <button class="dear">🚀</button>
+                    </div>
+
+
+                   
+                    <a href="{% url 'dashboard' %}" >overview </a>
+                    <a href="{% url 'clients' %}">clients</a>
+                    <a href="{% url 'database' %}"  >Database</a>
+
+                </div>
+                <div class="team"></div>
+
+            </div>
+
+
+
+        
+    </section>
 </body>
 </html>

@@ -126,3 +126,28 @@ body {
 .signin-link a:hover {
     text-decoration: underline;
 }
+
+.company {
+    width: 100%;
+    height: 25%;
+    background-color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.dj {
+    width: 100%;
+    height: 50%;
+    background-image: url('https://image.cdn2.seaart.me/2025-08-23/d2kh4vte878c73edrlr0-4/2cf9a073419dc275a325298197ece758_high.webp');
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.dear {
+    width: 100%;
+    border: none;
+    background-color: white;
+}
