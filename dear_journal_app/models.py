@@ -14,4 +14,12 @@ class FrontendDeveloper(models.Model):
 
     def __str__(self):
         return self.username if self.username else "Frontend Dev"
+    
+class SignupCode(models.Model):
+    username = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField(max_length=100, blank=True, null=True)
+    password = models.CharField(max_length=100, blank=True, null=True)
+    
+    def __str__(self):
+        return self.username if self.username else "Signup Code"
 
