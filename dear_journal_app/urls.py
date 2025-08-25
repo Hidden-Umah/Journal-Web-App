@@ -22,17 +22,14 @@ urlpatterns = [
 
 
     #Sign up page
-<<<<<<< HEAD
     path("signup/", views.signup, name="signup"),
 
 
 
-    ]
+    
 
-=======
         path("signup/", views.signup, name="signup"),
     
     #Sign in page
     path("signin/", views.signin, name="signin")
 ]
->>>>>>> be0c621 (Linked signin page to the signinbutton on the homepage)
