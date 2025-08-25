@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearJournal - Your Private Online Journal</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <a href="{% url 'landing' %}">
+                        <img src="{% static 'images/logo.png' %}">
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                     <!-- Added a seperate unseen button for admins -->
+                    <button class="admin"></button>
+
+
+                    <button class="btn-signin">Sign in</button>
+                    <!-- Redirecting sign up button to signup.html using django -->
+                    <a href="{% url 'signup' %}">
+                        <button class="btn-signup">Sign up</button>  
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <!-- Got rid of the "strong" and made the font-weight bold instead. 
+                        Defined h1 fonts and sizes in index.css 
+                        Also got rid of all <br> and defined max width on .hero-title css
+                        -->
+                        <h1 class="hero-title">
+                            Your private 100% customizable online journal.
+                        </h1>
+                        <p class="hero-subtitle">Loved by millions of students worldwide</p>
+                        <!-- Redirecting sign up button to signup.html using django on next line -->
+                        <a href="{% url 'signup' %}">
+                            <button class="btn-cta">Start your free journal now →</button>
+                        </a>                        
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="{% static 'images/woman.jpg' %}" alt="Woman journaling at modern desk with laptop and coffee" class="hero-img">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>

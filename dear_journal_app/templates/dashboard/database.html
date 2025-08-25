@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Database</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/database.css' %}" />
+  </head>
+  <body>
+    <!-- the whole screen  -->
+    <section class="firstSection">
+      <!-- the box inwhich all the elements reside -->
+      <div class="mainBox">
+        <!-- the side pannel at the left -->
+        <div class="sidePanel">
+          <div class="locations">
+            <div class="company">
+              <div class="dj"></div>
+              <button class="dear">🚀</button>
+            </div>
+
+            <button class="overview">overview</button>
+            <button class="clients">users</button>
+            <button class="Database">Database</button>
+          </div>
+          <div class="team"></div>
+        </div>
+
+        <div class="generalInfo">
+            
+          <div class="heading">
+            <h2>Database</h2>
+          </div>
+          <div class="stats">
+            <div class="legend">
+                <div class="circle1"></div>
+                
+                <h1>Registered Admins</h1>
+
+                <div class="circle2"></div>
+            </div>
+
+
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Date Joined</th>
+                <th>Last Login</th>
+              </tr>
+              {% for user in users %}
+              <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>{{ user.last_login }}</td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="5">No users found</td>
+              </tr>
+              {% endfor %}
+            </table>
+
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p><a href="{% url 'dashboard' %}">⬅ Back to Dashboard</a></p>
+  </body>
+</html>

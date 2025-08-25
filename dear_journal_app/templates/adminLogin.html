@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/adminLogin.css' %}">
+</head>
+<body>
+    <div class="main">
+     <div class="wrapper">
+        <div class="logo"></div>
+
+
+        <div class="Lform">
+            <h2>Login</h2>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <a rel="noreferrer noopenner"><button type="submit">Login</button></a>
+            </form>
+        </div>
+     </div>
+    </div>
+    
+</body>
+</html>
