@@ -24,6 +24,9 @@ urlpatterns = [
     #Sign up page
     path("signup/", views.signup, name="signup"),
 
+    # Clients dashboard page
+    path("dashboard/clients/", views.clients, name = 'clients')
+
 
 
     ]

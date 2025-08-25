@@ -4,10 +4,15 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: yellow;
+}
+
 .firstSection {
     width: 100%;
     height: auto; 
-    background-color: rgb(212, 211, 211);
+    background-color: rgb(255, 30, 30);
 }
 
 .mainBox {
@@ -117,9 +122,9 @@
     
 }
 
-.anoyinglinks{
+.anoyinglinks {
     text-decoration: none;
-
+    color: inherit; /* Ensures link uses button text color */
 }
 
 .team {

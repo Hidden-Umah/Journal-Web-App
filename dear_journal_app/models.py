@@ -14,3 +14,4 @@ class FrontendDeveloper(models.Model):
 
     def __str__(self):
         return self.username if self.username else "Frontend Dev"
+

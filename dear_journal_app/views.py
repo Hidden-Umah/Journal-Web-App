@@ -48,3 +48,9 @@ def join_frontend_team(request):
         return redirect("frontend_login")  # redirect to login after submission
 
     return render(request, "dashboard/join_frontend_team.html")
+
+
+
+#  This is for the our clients 
+def clients (response):
+    return render(response, "dashboard/clients.html")
