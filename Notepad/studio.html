@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveNotes - Your Creative Writing Space</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <div class="notepad-container">
+        <!-- Header with animated welcome -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="fas fa-feather-alt logo-icon"></i>
+                    <h1 class="app-title">LiveNotes</h1>
+                    <span class="tagline">Where ideas come alive</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="header-btn" id="fullscreenBtn" title="Fullscreen Mode">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Interactive Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-section">
+                <div class="toolbar-group">
+                    <label class="toolbar-label">Font</label>
+                    <select class="modern-select" id="fontFamily">
+                        <option value="'Inter', sans-serif">Inter</option>
+                        <option value="'Poppins', sans-serif">Poppins</option>
+                        <option value="'Times New Roman', serif">Times</option>
+                        <option value="'Georgia', serif">Georgia</option>
+                        <option value="'Courier New', monospace">Courier</option>
+                        <option value="'Fira Code', monospace">Fira Code</option>
+                    </select>
+                </div>
+                
+                <div class="toolbar-group">
+                    <label class="toolbar-label">Size</label>
+                    <div class="font-size-container">
+                        <button class="size-btn" id="decreaseFont">-</button>
+                        <input type="number" class="font-size-input" id="fontSize" value="16" min="10" max="48">
+                        <button class="size-btn" id="increaseFont">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="boldBtn" title="Bold (Ctrl+B)" data-format="bold">
+                        <i class="fas fa-bold"></i>
+                    </button>
+                    <button class="toolbar-btn" id="italicBtn" title="Italic (Ctrl+I)" data-format="italic">
+                        <i class="fas fa-italic"></i>
+                    </button>
+                    <button class="toolbar-btn" id="underlineBtn" title="Underline (Ctrl+U)" data-format="underline">
+                        <i class="fas fa-underline"></i>
+                    </button>
+                    <button class="toolbar-btn" id="strikeBtn" title="Strikethrough" data-format="strike">
+                        <i class="fas fa-strikethrough"></i>
+                    </button>
+                </div>
+
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="alignLeftBtn" title="Align Left" data-align="left">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <button class="toolbar-btn active" id="alignCenterBtn" title="Align Center" data-align="center">
+                        <i class="fas fa-align-center"></i>
+                    </button>
+                    <button class="toolbar-btn" id="alignRightBtn" title="Align Right" data-align="right">
+                        <i class="fas fa-align-right"></i>
+                    </button>
+                    <button class="toolbar-btn" id="alignJustifyBtn" title="Justify" data-align="justify">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="undoBtn" title="Undo (Ctrl+Z)">
+                        <i class="fas fa-undo"></i>
+                    </button>
+                    <button class="toolbar-btn" id="redoBtn" title="Redo (Ctrl+Y)">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+
+                <div class="toolbar-group">
+                    <input type="color" id="colorPicker" class="color-picker" title="Text Color" value="#1f2937">
+                    <button class="toolbar-btn" id="highlightBtn" title="Highlight">
+                        <i class="fas fa-highlighter"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="insertTimeBtn" title="Insert Date/Time">
+                        <i class="fas fa-clock"></i>
+                    </button>
+                    <button class="toolbar-btn" id="wordCountBtn" title="Word Count">
+                        <i class="fas fa-chart-bar"></i>
+                    </button>
+                    <button class="toolbar-btn" id="focusModeBtn" title="Focus Mode">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Area -->
+        <div class="document-area">
+            <!-- Title Section -->
+            <div class="document-header">
+                <div class="title-container">
+                    <i class="fas fa-file-alt title-icon"></i>
+                    <input type="text" class="document-title" id="documentTitle" placeholder="✨ Give your masterpiece a title...">
+                    <div class="title-underline"></div>
+                </div>
+                <div class="document-meta">
+                    <span class="creation-date" id="creationDate"></span>
+                    <span class="reading-time" id="readingTime">0 min read</span>
+                </div>
+            </div>
+
+            <!-- Editor Container -->
+            <div class="editor-container" id="editorContainer">
+                <div class="editor-wrapper">
+                    <textarea 
+                        class="main-editor" 
+                        id="textEditor" 
+                        placeholder="🌟 Start writing your story...&#10;&#10;Let your creativity flow! This is your space to capture thoughts, ideas, memories, and dreams. Every great story begins with a single word.&#10;&#10;✨ Pro tip: Try different fonts and colors to make your writing unique!"
+                        spellcheck="true"
+                    ></textarea>
+                    <div class="typing-indicator" id="typingIndicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Status Bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <div class="save-status">
+                    <div class="pulse-dot" id="saveIndicator"></div>
+                    <span id="saveStatusText">Ready to create</span>
+                </div>
+                <div class="last-saved" id="lastSaved"></div>
+            </div>
+            
+            <div class="status-center">
+                <div class="progress-ring" id="progressRing">
+                    <svg width="24" height="24">
+                        <circle cx="12" cy="12" r="10" stroke-width="2" fill="none" stroke="#e5e7eb"></circle>
+                        <circle cx="12" cy="12" r="10" stroke-width="2" fill="none" stroke="#3b82f6" 
+                                stroke-dasharray="62.83" stroke-dashoffset="62.83" class="progress-circle"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="status-right">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <i class="fas fa-font"></i>
+                        <span id="wordCount">0 words</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-keyboard"></i>
+                        <span id="charCount">0 chars</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-paragraph"></i>
+                        <span id="paraCount">0 paragraphs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Buttons -->
+        <div class="fab-container">
+            <div class="fab-menu" id="fabMenu">
+                <button class="fab fab-main" id="mainFab" title="Actions">
+                    <i class="fas fa-magic"></i>
+                </button>
+                
+                <button class="fab fab-secondary" id="saveFab" title="Save Document" data-action="save">
+                    <i class="fas fa-save"></i>
+                </button>
+                
+                <button class="fab fab-secondary" id="exportFab" title="Export Document" data-action="export">
+                    <i class="fas fa-download"></i>
+                </button>
+                
+                <button class="fab fab-secondary" id="shareFab" title="Share" data-action="share">
+                    <i class="fas fa-share"></i>
+                </button>
+                
+                <button class="fab fab-secondary" id="clearFab" title="New Document" data-action="clear">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Word Count Modal -->
+        <div class="modal" id="wordCountModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-chart-line"></i> Document Statistics</h3>
+                    <button class="modal-close" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="modalWordCount">0</div>
+                            <div class="stat-label">Words</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="modalCharCount">0</div>
+                            <div class="stat-label">Characters</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="modalParaCount">0</div>
+                            <div class="stat-label">Paragraphs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="modalReadTime">0</div>
+                            <div class="stat-label">Min Read</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="notification-container" id="notificationContainer"></div>
+    </div>
+
+    <!-- Particle Effect Canvas -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- Scripts -->
+    <script src="particles.js"></script>
+    <script src="animations.js"></script>
+    <script src="notepad.js"></script>
+</body>
+</html>
