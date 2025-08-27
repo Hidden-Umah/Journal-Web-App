@@ -27,9 +27,13 @@
 
 
                    
-                    <a href="{% url 'dashboard' %}" >overview </a>
-                    <a href="{% url 'clients' %}">clients</a>
-                    <a href="{% url 'database' %}"  >Database</a>
+                    <a href="{% url 'dashboard' %}" >
+                      <button class="btn-dashboard"></button>overview </a>
+                    <a href="{% url 'clients' %}">
+                    <button class="btn-dashboard">clients</button></a>
+                    <a href="{% url 'database' %}"  >
+                      <button class="btn-dashboard">database</button></a>
+
 
                 </div>
                 <div class="team"></div>
