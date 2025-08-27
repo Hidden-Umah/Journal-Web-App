@@ -70,9 +70,7 @@
     <div class="frontendProfiles">
       <div class="legend1">
         <div class="circle1"></div>
-
-        <h1>Registered Admins</h1>
-
+        <h1>Frontend Developers</h1>
         <div class="circle2"></div>
       </div>
 
@@ -83,6 +81,8 @@
             <th>Bio</th>
             <th>Skills</th>
             <th>Profile Picture</th>
+            <th>Actions</th>
+            <!-- new column -->
           </tr>
         </thead>
         <tbody>
@@ -96,10 +96,36 @@
               <img
                 src="{{ dev.profile_picture.url }}"
                 alt="Profile Pic"
-                width="80"
+                width="50"
               />
               {% else %} No Image {% endif %}
             </td>
+            <td>
+              <form
+                method="POST"
+                action="{% url 'delete_developer' dev.id %}"
+                onsubmit="return confirm('Are you sure you want to delete this developer?');"
+              >
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  style="
+                    background: red;
+                    color: white;
+                    border: none;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                  "
+                >
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5">No Frontend Developers Registered</td>
           </tr>
           {% endfor %}
         </tbody>
