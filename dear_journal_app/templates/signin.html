@@ -7,17 +7,35 @@
     <!-- Inserting the css sheet -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <!-- Linking the logo to the homepage -->
+                    <a href="{% url 'landing' %}">
+                        <img src="{% static 'images/logo.png' %}">
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                    <a href="{% url 'signup' %}">
+                        <button class="btn-signin">Sign up</button> 
+                        <!-- left it as btn-sign in because I used the signup.css styles to be less redundant -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="flexbox-container"></div>
     
     <div class="signin-container">
         <h2>Sign In</h2>
         <form>
             <div class="form-group"> 
-                <label for="email">Email Address</label>
-                <input type="email" id="email" required>
+                <label for="username">Username</label>
+                <input type="username" id="username" required>
                  
             </div>
 
@@ -32,8 +50,7 @@
             
         </form>
         <div class="extra">
-            Don't have an account? <a href="sign Up"> Sign Up here</a>
-
+            Don't have an account? <a href="{% url 'signup' %}"> Sign Up here</a>
         </div>
 
     </div>

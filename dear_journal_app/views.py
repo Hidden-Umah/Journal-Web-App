@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required , user_passes_test
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .models import FrontendDeveloper
+from .models import SignupCode
 
 # Create your views here.
 
@@ -59,3 +60,20 @@ def join_frontend_team(request):
 #  This is for the our clients 
 def clients (response):
     return render(response, "dashboard/clients.html")
+
+
+def clients_storage(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        # Save into DB
+        SignupCode.objects.create(
+            username=username,
+            email=email,
+            password=password,
+        )
+
+        return redirect("signin")  # redirect to the journal page
+    return render(request, "dashboard/clients.html")
