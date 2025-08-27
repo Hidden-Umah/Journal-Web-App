@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In to DearJournal</title>
     <!-- Inserting the css sheet -->
-    
-    <link rel="stylesheet" href="../static/css/signin.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <!-- Linking the logo to the homepage -->
+                    <a href="{% url 'landing' %}">
+                        <img src="{% static 'images/logo.png' %}">
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                    <a href="{% url 'signup' %}">
+                        <button class="btn-signin">Sign up</button> 
+                        <!-- left it as btn-sign in because I used the signup.css styles to be less redundant -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="flexbox-container"></div>
     
     <div class="signin-container">
