@@ -76,4 +76,4 @@ def clients_storage(request):
         )
 
         return redirect("signin")  # redirect to the journal page
-    return render(request, "dashboard/clients.html")
+    return render(request, "dashboard/dashboard.html")
