@@ -31,7 +31,7 @@ urlpatterns = [
 
     
 
-        path("signup/", views.signup, name="signup"),
+    path("signup/", views.signup, name="signup"),
     
     #Sign in page
     path("signin/", views.signin, name="signin")
