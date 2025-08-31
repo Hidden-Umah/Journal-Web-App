@@ -9,7 +9,7 @@
     <title>Clients</title>
 </head>
 <body>
-        <!-- the whole screen  -->
+    <!-- the whole screen  -->
     <section class="firstSection">
 
         <!-- the box inwhich all the elements reside -->
@@ -25,48 +25,50 @@
                         <button class="dear">🚀</button>
                     </div>
 
-
-                   
-                    <a href="{% url 'dashboard' %}" >
-                      <button class="btn-dashboard"></button>overview </a>
-                    <a href="{% url 'clients' %}">
-                    <button class="btn-dashboard">clients</button></a>
-                    <a href="{% url 'database' %}"  >
-                      <button class="btn-dashboard">database</button></a>
-
-
+                    <div class="links"> 
+                      <a href="{% url 'dashboard' %}" class="btn-dashboard">overview</a>
+                    </div>
+                    <div class="links">
+                      <a href="{% url 'clients' %}" class="btn-dashboard">users</a>
+                    </div>
+                    <div class="links">
+                      <a href="{% url 'database' %}" class="btn-dashboard">database</a>
+                    </div>
+                    
                 </div>
                 <div class="team"></div>
 
             </div>
-            <!--  table for the backends -->
-            <div class="users"> 
-                <table>
-                  <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Date Joined</th>
-                    <th>Last Login</th>
-                  </tr>
-                  {% for user in users %}
-                  <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.date_joined }}</td>
-                    <td>{{ user.last_login }}</td>
-                  </tr>
-                  {% empty %}
-                  <tr>
-                    <td colspan="5">No users registered</td>
-                  </tr>
-                  {% endfor %}
-                </table>
+
+            <div class="generalInfo">
+              <div class="stats">
+                  <table>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Date joined</th>
+                      <th>Last login</th>
+                    </tr>
+                    {% for user in users %}
+                    <tr>
+                      <td>{{ user.id }}</td>
+                      <td>{{ user.name }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.date_joined }}</td>
+                      <td>{{ user.last_login }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                      <td colspan="5">No users registered.</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+              </div>
             </div>
-           
-          </div>
         </div>
+
     </section>
-  </body>
+
+</body>
 </html>
