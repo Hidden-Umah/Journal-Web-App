@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required , user_passes_test 
 from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render, redirect
@@ -9,11 +10,6 @@ from .models import FrontendDeveloper
 
 def landing (request):
     return render(request,"index.html")
-
-#Sign in view
-
-def signin(request):
-    return render(request, "signin.html")
 
 # Users Notepads
 @login_required
@@ -90,3 +86,21 @@ def signup(request):
         return redirect("notepad")
 
     return render(request, "signup.html")
+
+
+
+def signin(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("notepad")   # redirect to notepad after login
+        else:
+            messages.error(request, "Invalid username or password")
+            return redirect("signin")
+
+    return render(request, "signin.html")

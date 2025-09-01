@@ -33,5 +33,8 @@ urlpatterns = [
 
     
     #Sign in page
-    path("signin/", views.signin, name="signin")
+    path("signin/", views.signin, name="signin"),
+    
+    #logout
+     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
 ]
