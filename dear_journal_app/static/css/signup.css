@@ -151,3 +151,46 @@ body {
     border: none;
     background-color: white;
 }
+
+.messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.alert {
+    background: #f0f4ff;
+    border-left: 6px solid #3b82f6;
+    color: #1e3a8a;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    animation: fadeIn 0.5s ease, fadeOut 0.5s ease 2.5s forwards; 
+}
+
+
+.alert-success {
+    border-left-color: #16a34a;
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.alert-error {
+    border-left-color: #dc2626;
+    background: #fef2f2;
+    color: #7f1d1d;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; display: none; }
+}

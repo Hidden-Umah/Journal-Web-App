@@ -52,6 +52,16 @@
             Already have an account? <a href="/signin">Sign In</a>
         </div>
     </div>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert 
+                {% if message.tags %} alert-{{ message.tags }} {% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <script>
         // Simple password match validation
         document.querySelector('form').addEventListener('submit', function(e) {

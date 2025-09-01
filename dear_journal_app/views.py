@@ -71,6 +71,11 @@ def signup(request):
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already taken")
             return redirect("signup")
+        
+        # check if email exists
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already registered")
+            return redirect("signup")
 
         # Save to DB
         user = User.objects.create_user(
@@ -82,6 +87,9 @@ def signup(request):
         # log them in immediately
         login(request, user)
 
+        # Signup success message
+        messages.success(request, f"Welcome {username}, your account was created successfully!")
+
         # redirect to notepad instead of dashboard
         return redirect("notepad")
 
@@ -90,6 +98,9 @@ def signup(request):
 
 
 def signin(request):
+    if request.user.is_authenticated:
+        return redirect("notepad")
+    
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -98,6 +109,7 @@ def signin(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request, "Welcome back! Sign in successful")
             return redirect("notepad")   # redirect to notepad after login
         else:
             messages.error(request, "Invalid username or password")
