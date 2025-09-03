@@ -336,3 +336,43 @@ document.addEventListener('DOMContentLoaded', () => {
         selection.addRange(range);
     }
 });
+
+
+
+//Login timeout
+
+    let warningTime = 4 * 60 * 1000; // 4 minutes
+    let logoutTime = 5 * 60 * 1000;  // 5 minutes
+
+    let warningTimer, logoutTimer;
+
+    function startTimers() {
+        clearTimeout(warningTimer);
+        clearTimeout(logoutTimer);
+
+        // Show popup after 4 min
+        warningTimer = setTimeout(showWarning, warningTime);
+
+        // Auto logout after 5 min
+        logoutTimer = setTimeout(autoLogout, logoutTime);
+    }
+
+    function showWarning() {
+        if (confirm("You will be logged out soon. Do you want to stay signed in?")) {
+            // Send a request to refresh session
+            fetch("{% url 'notepad' %}", {method: "GET"}).then(() => {
+                startTimers(); // Reset timers
+            });
+        }
+    }
+
+    function autoLogout() {
+        window.location.href = "{% url 'logout' %}";
+    }
+
+    // Reset timer whenever user interacts
+    document.addEventListener("mousemove", startTimers);
+    document.addEventListener("keypress", startTimers);
+
+    // Start the timers when page loads
+    startTimers();

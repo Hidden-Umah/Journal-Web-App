@@ -24,15 +24,17 @@ urlpatterns = [
     #Sign up page
     path("signup/", views.signup, name="signup"),
 
-    # Clients dashboard page
+    # Clients dashboard page for admins
     path("dashboard/clients/", views.clients, name = 'clients'),
 
 
+    # Clients notepad views
+    path("notepad/", views.notepad_view, name="notepad"),
 
-    
-
-    path("signup/", views.signup, name="signup"),
     
     #Sign in page
-    path("signin/", views.signin, name="signin")
+    path("signin/", views.signin, name="signin"),
+    
+    #logout
+     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
 ]
