@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearJournal - Welcome Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/webpage.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}">
+        </div>
+        <div class="actions">
+            <div class="notepad-link">
+                <a href="{% url 'notepad' %}" class="btn">Go to Notepad</a>
+            </div>
+            <div class="logout-link">
+                <a href="{% url 'logout' %}" class="btn">Logout</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h2>Welcome {{ user.username }} !</h2>
+            <div class="note">
+                <h3>Note Title</h3>
+                <p>This is a sample note content.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
