@@ -26,6 +26,10 @@ def dashboard_view(request):
 def clients(request):
     return render(request, "dashboard/clients.html")
 
+# Webpage
+@login_required
+def webpage_view(request):
+    return render(request, "notepad/webpage.html")
 
 # Admin Database
 

@@ -30,6 +30,22 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.action{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+}
+
+.action-btn{
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+
 .logo img {
     width: 160px;
     height: auto;

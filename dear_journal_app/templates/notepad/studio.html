@@ -14,9 +14,14 @@
             <div class="logo">
                 <img src="{% static 'images/logo.png' %}">
             </div>
-            <div class="file-info">
+            <div class="action">
+                <div class="file-info">
                 <span id="fileName">Untitled Document</span>
                 <span id="wordCount">0 words</span>
+                </div>
+                <div class="actions">
+                <a href="{% url 'webpage' %}" class="action-btn">Webpage</a>
+            </div>
             </div>
         </header>
 

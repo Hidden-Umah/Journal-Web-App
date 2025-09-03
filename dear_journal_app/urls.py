@@ -37,4 +37,7 @@ urlpatterns = [
     
     #logout
      path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+
+    # Webpage
+    path("webpage/", views.webpage_view, name="webpage"),
 ]
