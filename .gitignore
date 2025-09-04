@@ -2,4 +2,4 @@ venv
 as3mooh
 backend
 __pycache__/
-*.py[cod]
+*.py[cod]db.sqlite3
