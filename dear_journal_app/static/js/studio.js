@@ -376,3 +376,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the timers when page loads
     startTimers();
+
+//   Pop out messages flash
+  setTimeout(() => {
+    document.querySelectorAll('.messages li').forEach(el => el.remove());
+  }, 3000); // hides after 3s
+

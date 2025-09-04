@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
+    <div id="popup-messages">
+        {% if messages %}
+         {% for message in messages %}
+      <div class="popup {{ message.tags }}">
+        {{ message }}
+      </div>
+        {% endfor %}
+        {% endif %}
+    </div>
     <header class="header">
         <div class="container">
             <div class="nav">
@@ -55,17 +64,10 @@
         </div>
 
     </div>
-    {% if messages %}
-  <div class="messages">
-    {% for message in messages %}
-      <div class="alert {{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-  </div>
-{% endif %}
 
 <script>
   setTimeout(() => {
-      document.querySelectorAll('.alert').forEach(el => {
+      document.querySelectorAll('.popup').forEach(el => {
           el.style.opacity = '0';
           el.style.transition = 'opacity 0.5s ease';
           setTimeout(() => el.remove(), 500);

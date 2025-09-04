@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required , user_passes_test 
 from django.contrib.auth import login
 from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render, redirect
@@ -94,8 +95,8 @@ def signup(request):
         # Signup success message
         messages.success(request, f"Welcome {username}, your account was created successfully!")
 
-        # redirect to notepad instead of dashboard
-        return redirect("notepad")
+        # redirect to webpage instead of notepad
+        return redirect("webpage")
 
     return render(request, "signup.html")
 
@@ -103,7 +104,7 @@ def signup(request):
 
 def signin(request):
     if request.user.is_authenticated:
-        return redirect("notepad")
+        return redirect("webpage")
     
     if request.method == "POST":
         username = request.POST.get("username")
@@ -113,10 +114,15 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, "Welcome back! Sign in successful")
-            return redirect("notepad")   # redirect to notepad after login
+            messages.success(request, "You have been logged in successfully")
+            return redirect("webpage")   # redirect to webpage after login
         else:
             messages.error(request, "Invalid username or password")
-            return redirect("signin")
+            return redirect("signin")    # go back to signin, not webpage
 
     return render(request, "signin.html")
+
+def signout(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully")
+    return redirect("signin")

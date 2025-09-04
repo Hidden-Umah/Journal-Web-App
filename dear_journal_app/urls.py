@@ -12,7 +12,7 @@ urlpatterns = [
     # Admin Database 
     path("dashboard/database/",views.database , name = 'database' ),
 
-    # Login and logout
+    # Login and logout for Admins
     path("login/", auth_views.LoginView.as_view(template_name="adminLogin.html"), name="login"),
     path("logout/", auth_views.LogoutView.as_view(next_page="login"), name="logout"),
 
@@ -36,7 +36,7 @@ urlpatterns = [
     path("signin/", views.signin, name="signin"),
     
     #logout
-     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+     path("signout/", views.signout, name="signout"),
 
     # Webpage
     path("webpage/", views.webpage_view, name="webpage"),

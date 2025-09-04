@@ -14,9 +14,23 @@
         </div>
         <div class="actions">
             <div class="logout-link">
-                <a href="{% url 'signin' %}" class="btn">Logout</a>
+                <form action="{% url 'signout' %}" method="post">
+                     {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+
             </div>
         </div>
+        <div id="popup-messages">
+            {% if messages %}
+             {% for message in messages %}
+             <div class="popup {{ message.tags }}">
+                {{ message }}
+             </div>
+             {% endfor %}
+             {% endif %}
+        </div>
+
     </header>
 
     <main class="main-content">
