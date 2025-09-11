@@ -1,3 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo img {
+    width: 160px;
+    height: auto;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+
 /* Imported fonts */
  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); /*Playfair font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); /*Montseratt*/
@@ -36,6 +71,22 @@ body {
     padding: 20px 0;
     position: relative;
     z-index: 100;
+    padding : 20px;
+}
+
+.btn{
+    background: #048ba8;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #036f8c
 }
 
 .nav {
@@ -55,47 +106,13 @@ body {
     align-items: center;
 }
 
-.btn-signin {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.btn-signin:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
-}
-
-.btn-signup {
-    background: #202030;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 12px 24px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.btn-signup:hover {
-    background: #111827;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 /* Main Content Styles */
-.main {
+.main-content {
     background: #F0F4F3;
     display: flex;
     align-items: center;
     padding: 60px 0;
+    justify-content: center;
 }
 
 .hero {
@@ -213,15 +230,6 @@ body {
         font-size: 18px;
     }
     
-    .btn-cta {
-        font-size: 16px;
-        padding: 16px 28px;
-    }
-    
-    .nav {
-        flex-direction: column;
-        gap: 20px;
-    }
     
     .main {
         padding: 40px 0;
@@ -246,167 +254,45 @@ body {
         gap: 10px;
         width: 100%;
     }
-    
-    .btn-signin,
-    .btn-signup {
-        width: 100%;
-        text-align: center;
-    }
 }
 
-/* Animation Classes */
-.fade-in {
+#popup-messages {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.popup {
+  background: #333;
+  color: #fff;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
+}
+
+.popup.success { background: #28a745; }
+.popup.error   { background: #dc3545; }
+.popup.warning { background: #ffc107; color: #333; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.fade-in-delay {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease 0.3s forwards;
-}
-
-.slide-in-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideInLeft 0.8s ease forwards;
-}
-
-.slide-in-right {
-    opacity: 0;
-    transform: translateX(50px);
-    animation: slideInRight 0.8s ease 0.4s forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.loading {
-    position: relative;
-    overflow: hidden;
-}
-
-.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-    to {
-        left: 100%;
-    }
-}
-
-/* Styling for the  admin dashboard */
-.admin {
-    background: #048ba8;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    width: 70px;
-    height: 40px;
-    border-radius: 8px ;
-
-}
-<<<<<<< HEAD
-=======
-.feature-icon {
-    width: 260px;       
-    height: auto;      
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto; 
-     background: #f0f4f3;
-    border-radius: 50%;
-    padding: 20px;
-    transition: all 0.3s ease;
-
-     
-}
-
-.feature-icon img {
-    max-width: 100%;   
-    max-height: 100%; 
-    width: auto;      
-    height: auto;     
-    display: block;   
-    
-    
-}
-      
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin:0 auto;
-    padding: 0 20px; 
-    max-width: 1450px;
-}
-
-.feature-card {
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #1F2937;
-}
-
-.feature-card p {
-    color: #4B5563;
-    line-height: 1.6;
-    font-size: 18px;
-}
-@media (max-width: 768px) {
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-}
-}
-.features-section {
-    background: #f0f4f3;
-    padding: 0;
-    width: 100%;
-
+    transform: translateX(100%);
+  }
 }
 
 
-    
 
->>>>>>> df5c98fdd0a9370a129f7e0da11f94d25604eaef
+

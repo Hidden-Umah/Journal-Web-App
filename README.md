@@ -2,6 +2,8 @@
 
 A simple web application where users can sign up, log in, and manage personal journal entries (create, edit, delete, view). Built with Django (backend) and HTML/CSS/JavaScript (frontend).
 
+NOTE: Read the styeguide and commit guide before contributing.
+
 ## 🚀 Features
 
 User authentication (sign up, login, logout)

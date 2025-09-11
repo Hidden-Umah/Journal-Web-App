@@ -125,13 +125,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # After login, redirect here
-LOGIN_REDIRECT_URL = "/dashboard/"
+LOGIN_REDIRECT_URL = "notepad"
 
-# After logout, redirect here
-LOGOUT_REDIRECT_URL = "/login/"
+# After logout, redirect here 
+LOGOUT_REDIRECT_URL = "signin"
+
+# Making sure authentication is required to access the notepad
+LOGIN_URL = "signin"         
+LOGIN_REDIRECT_URL = "notepad"  
+
 
 
 
 #  for media files 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
+
+
+#for time out
+SESSION_COOKIE_AGE = 300   #time out after 5 minutes
+SESSION_SAVE_EVERY_REQUEST = True

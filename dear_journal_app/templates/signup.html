@@ -27,7 +27,8 @@
     </header>
     <div class="signup-container">
         <h2>Create Account</h2>
-        <form action="/signup" method="POST">
+        <form action="{% url 'signup' %}" method="POST">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -51,6 +52,16 @@
             Already have an account? <a href="/signin">Sign In</a>
         </div>
     </div>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert 
+                {% if message.tags %} alert-{{ message.tags }} {% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <script>
         // Simple password match validation
         document.querySelector('form').addEventListener('submit', function(e) {

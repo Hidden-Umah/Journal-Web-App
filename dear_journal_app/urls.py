@@ -15,7 +15,11 @@ urlpatterns = [
     # Delete developer
     path("delete-developer/<int:dev_id>/", views.delete_developer, name="delete_developer"),
 
+<<<<<<< HEAD
     # Admin Login and logout
+=======
+    # Login and logout for Admins
+>>>>>>> df5c98fdd0a9370a129f7e0da11f94d25604eaef
     path("login/", auth_views.LoginView.as_view(template_name="adminLogin.html"), name="login"),
     path("logout/", auth_views.LogoutView.as_view(next_page="login"), name="logout"),
 
@@ -27,12 +31,15 @@ urlpatterns = [
     #Sign up page
     path("signup/", views.signup, name="signup"),
 
-    # Clients dashboard page
+    # Clients dashboard page for admins
     path("dashboard/clients/", views.clients, name = 'clients'),
 
 
+    # Clients notepad views
+    path("notepad/", views.notepad_view, name="notepad"),
 
     
+<<<<<<< HEAD
 
     path("signup/", views.signup, name="signup"),
     
@@ -41,4 +48,14 @@ urlpatterns = [
 
     # About Page
     path("about/",views.about , name = "about")
+=======
+    #Sign in page
+    path("signin/", views.signin, name="signin"),
+    
+    #logout
+     path("signout/", views.signout, name="signout"),
+
+    # Webpage
+    path("webpage/", views.webpage_view, name="webpage"),
+>>>>>>> df5c98fdd0a9370a129f7e0da11f94d25604eaef
 ]
