@@ -1,13 +1,9 @@
+/* Imported fontstyles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
-    font-family: Montserrat(sans-serif,modern and readable);
-    font-size:  17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #f4f4f4;
-}
+
+
 .signin-container{
     background:#fff;
     padding: 2rem 2.5rem;
@@ -15,8 +11,9 @@ body{
     width: 350px;
     min-height: 450px;
     box-shadow:0 2px 8px rgba(0,0,0,0.1) ;
-    
+    margin: 4rem auto;
 }
+
 h2{
     display: flex;
     text-align: center;
@@ -46,17 +43,22 @@ h2{
 .signin-btn{
     width: 100%;
     padding: 12px;
+    font-family: Montserrat,Arial,sans-serif;
+    display: flex;
     margin-top: 20px;
     background-color :#007bff;
-    color:white ;
+    color:#fff ;
     justify-content: center;
     border-radius: 7px;
-    border: 1px solid #ccc;
     font-size: 16px;
+    border: 1px solid #ccc;
+
 }
 .signin-btn:hover{
     background:#0056b3;
+
 }
+
 .extra{
     text-align: center;
     margin-top: 16px;

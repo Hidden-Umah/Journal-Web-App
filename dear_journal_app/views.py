@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required , user_passes_test 
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render , get_object_or_404, redirect
 from .models import FrontendDeveloper
 from .models import SignupCode
 
@@ -22,11 +22,14 @@ def signin(request):
 #  the dashboard
 @login_required
 def dashboard_view(request):
-    return render(request,"dashboard/dashboard.html")
+    admin_count = User.objects.filter(is_superuser = True).count() # Count superusers
+    return render(request,"dashboard/dashboard.html",{
+        "admin_count":admin_count
+    })
 
 
 # Admin Database
-
+@login_required
 def database(request):
     users = User.objects.all()
     developers = FrontendDeveloper.objects.all()
@@ -77,3 +80,20 @@ def clients_storage(request):
 
         return redirect("signin")  # redirect to the journal page
     return render(request, "dashboard/clients.html")
+
+
+
+
+#  Delete Developer 
+def delete_developer(request, dev_id):
+    developer = get_object_or_404(FrontendDeveloper, id=dev_id)
+
+    if request.method == "POST":
+        developer.delete()
+        return redirect("database")  # after deleting, go back to database page
+
+    return redirect("database")
+
+# views for About Page
+def about(request):
+    return render(request, "about.html")

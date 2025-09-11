@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearJournal - Text Editor</title>
+    <link rel="stylesheet" href="canvas.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="/Journal-Web-App/dear_journal_app/static/images/logo.png">
+            </div>
+            <div class="file-info">
+                <span id="fileName">Untitled Document</span>
+                <span id="wordCount">0 words</span>
+            </div>
+        </header>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <!-- File Operations -->
+            <div class="toolbar-group">
+                <button id="newBtn" class="toolbar-btn" title="New Document">
+                    <span>New</span>
+                </button>
+                <button id="openBtn" class="toolbar-btn" title="Open File">
+                    <span>Open</span>
+                </button>
+                <button id="saveBtn" class="toolbar-btn" title="Save Document">
+                    <span>Save</span>
+                </button>
+                <input type="file" id="fileInput" accept=".txt,.html" style="display: none;">
+            </div>
+
+            <div class="toolbar-separator"></div>
+
+            <!-- Formatting Options -->
+            <div class="toolbar-group">
+                <select id="fontFamily" class="toolbar-select">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+                
+                <select id="fontSize" class="toolbar-select">
+                    <option value="12px">12</option>
+                    <option value="14px" selected>14</option>
+                    <option value="16px">16</option>
+                    <option value="18px">18</option>
+                    <option value="20px">20</option>
+                    <option value="24px">24</option>
+                    <option value="28px">28</option>
+                    <option value="32px">32</option>
+                </select>
+            </div>
+
+            <div class="toolbar-separator"></div>
+
+            <!-- Text Formatting -->
+            <div class="toolbar-group">
+                <button id="boldBtn" class="toolbar-btn format-btn" title="Bold">
+                    <strong>B</strong>
+                </button>
+                <button id="italicBtn" class="toolbar-btn format-btn" title="Italic">
+                    <em>I</em>
+                </button>
+                <button id="underlineBtn" class="toolbar-btn format-btn" title="Underline">
+                    <u>U</u>
+                </button>
+                <input type="color" id="textColor" class="color-picker" value="#000000" title="Text Color">
+            </div>
+
+            <div class="toolbar-separator"></div>
+
+            <!-- Alignment -->
+            <div class="toolbar-group">
+                <button id="alignLeftBtn" class="toolbar-btn align-btn active" title="Align Left">
+                    <span>⬅</span>
+                </button>
+                <button id="alignCenterBtn" class="toolbar-btn align-btn" title="Center">
+                    <span>⬆</span>
+                </button>
+                <button id="alignRightBtn" class="toolbar-btn align-btn" title="Align Right">
+                    <span>➡</span>
+                </button>
+            </div>
+
+            <div class="toolbar-separator"></div>
+
+            <!-- Insert Options -->
+            <div class="toolbar-group">
+                <button id="insertDateBtn" class="toolbar-btn" title="Insert Date">
+                    <span>Date</span>
+                </button>
+                <button id="clearBtn" class="toolbar-btn" title="Clear All">
+                    <span>Clear</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Editor Area -->
+        <div class="editor-container">
+            <div id="editor" class="editor" contenteditable="true" spellcheck="true">
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <span id="charCount">0 characters</span>
+                <span id="lineCount">1 line</span>
+            </div>
+            <div class="status-right">
+                <span id="lastSaved">Never saved</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="particles.js"></script>
+</body>
+</html>
