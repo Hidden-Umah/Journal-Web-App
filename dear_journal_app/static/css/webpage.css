@@ -1,21 +1,22 @@
 * {
     margin: 0;
     padding: 0;
-    
+    box-sizing: border-box;
 }
 
+/* Global */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    height: 100vh;
-    overflow: hidden;
+    font-family: Montserrat, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #daf0ee;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Header Styles */
 .header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 10px 20px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,247 +33,39 @@ body {
     gap: 10px;
 }
 
-
-/* Imported fonts */
- @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); /*Playfair font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); /*Montseratt*/
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
-h1 {
-    font-family: Playfair Display, serif;
-    font-size: 58px;
-    font-weight: bold;
-}
-
-body {
-    font-family: Montserrat, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-     background-color: #daf0ee;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-   
-}
-
-
-.header {
-    background: #048ba8;
-    padding: 20px 0;
-    position: relative;
-    z-index: 100;
-    padding : 20px;
-}
-
-.btn{
-    background: #048ba8;
-    color: white;
+.btn-logout {
+    background: #fff;
+    color: #764ba2;
+    font-weight: 600;
     border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
+    padding: 10px 18px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    text-decoration: none;
+    transition: 0.3s ease;
 }
 
-.btn:hover {
-    background: #036f8c
+.btn-logout:hover {
+    background: #f0f0f0;
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 20px; 
-    width: auto;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-/* Main Content Styles */
-.main-content {
-    background: #F0F4F3;
-    display: flex;
-    align-items: center;
-    padding: 60px 0;
-    justify-content: center;
-}
-
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    min-height: 500px;
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.hero-title {
-    color: #1F2937;
-    line-height: 1.1;
-    margin-bottom: 30px;
-    letter-spacing: -1px;
-    max-width: 480px;
-}
-
-.hero-subtitle {
-    font-size: 20px;
-    color: #4B5563;
-    margin-bottom: 40px;
-    font-weight: 400;
-}
-
-.btn-cta {
-    background: #202030;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 18px 32px;
-    border-radius: 12px;
-    width: fit-content;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-cta:hover {
-    background: #111827;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(31, 41, 55, 0.3);
-}
-
-.btn-cta:active {
-    transform: translateY(0);
-}
-
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.image-container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-.hero-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 4/3;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(31, 41, 55, 0.05) 100%);
-    pointer-events: none;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero {
-        gap: 60px;
-    }
-    
-    .hero-title {
-        font-size: 52px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 42px;
-        line-height: 1.2;
-    }
-    
-    .hero-subtitle {
-        font-size: 18px;
-    }
-    
-    
-    .main {
-        padding: 40px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .hero-title {
-        font-size: 36px;
-    }
-    
-    .logo h1 {
-        font-size: 20px;
-    }
-    
-    .auth-buttons {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-}
-
+/* Popup Messages */
 #popup-messages {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
 }
 
 .popup {
-  background: #333;
-  color: #fff;
-  padding: 12px 18px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateX(100%);
-  animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
+    background: #333;
+    color: #fff;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
 }
 
 .popup.success { background: #28a745; }
@@ -293,6 +86,167 @@ body {
   }
 }
 
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
 
+/* Welcome Section */
+.welcome-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+    text-align: center;
+}
 
+.welcome-box h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 12px;
+    color: #1F2937;
+}
 
+.welcome-box .username {
+    color: #764ba2;
+    font-weight: 700;
+}
+
+.welcome-box .subtitle {
+    font-size: 18px;
+    color: #4B5563;
+    margin-bottom: 20px;
+}
+
+/* CTA Button */
+.btn-cta {
+    background: #202030;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 16px 28px;
+    border-radius: 12px;
+    width: fit-content;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cta:hover {
+    background: #111827;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(31, 41, 55, 0.3);
+}
+
+.btn-cta:active {
+    transform: translateY(0);
+}
+
+/* Recent Journals Section */
+.recent-journals {
+    margin-top: 30px;
+}
+
+.recent-journals h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.journal-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.journal-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.journal-item:hover {
+    transform: translateY(-3px);
+}
+
+.journal-item h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #202030;
+}
+
+.journal-item p {
+    color: #4B5563;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.journal-item small {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.btn-small {
+    display: inline-block;
+    background: #764ba2;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-small:hover {
+    background: #5a3d91;
+}
+
+/* View All Journals Button */
+.btn-secondary {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 26px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* Empty State */
+.empty {
+    color: #6B7280;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .journal-list {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-box h1 {
+        font-size: 32px;
+    }
+}
