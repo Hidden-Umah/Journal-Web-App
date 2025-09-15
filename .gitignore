@@ -2,4 +2,5 @@ venv
 as3mooh
 backend
 __pycache__/
+dear_journal/__pycache__
 *.py[cod]
