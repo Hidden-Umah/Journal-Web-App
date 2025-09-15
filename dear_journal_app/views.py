@@ -17,7 +17,7 @@ def notepad_view(request):
     return render(request, "notepad/studio.html")
 
 #  the Admin dashboard
-@login_required
+
 def dashboard_view(request):
     return render(request,"dashboard/dashboard.html")
 

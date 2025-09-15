@@ -4,7 +4,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+a{
+    text-decoration: none;
+    color: yellow;
+}
 
 .firstSection {
     width: 100%;
@@ -76,33 +79,48 @@
 
 .admins {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 10px;
     width: 100%;
     height: 50%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(206, 206, 206);
     border-radius: 16px;
    
     
 }
 
 .active {
-    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    width: 25%;
     height: 100%;
-    background-color: white;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .joined{
-    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    width: 25%;
     height: 100%;
-    background-color: white;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
-.journals{
-    width: 33%;
+.journals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    width: 100%;
     height: 100%;
-    background-color: white;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 
@@ -195,4 +213,78 @@
     width: 100%;
     border: none;
     background-color: white;
+}
+
+.pie {
+    width: 100%;
+    height: 50%;
+    background-image:url("../images/pie\ chart.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.cic {
+    height: 50%;
+    width: 100%;
+    background-image: url('pie\ chart.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.backends {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.storage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.frontends {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.backends p {
+    font-weight: 600;
+    color:rgb(247, 100, 2) ;
+}
+
+
+.frontends p {
+    font-weight: 600;
+    color:rgb(89, 0, 255) ;
+}
+
+.storage p {
+    font-weight: 600;
+    color:rgb(95, 206, 4) ;
+}
+
+.secondBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

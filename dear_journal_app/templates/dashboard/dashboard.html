@@ -1,11 +1,12 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <title>Dashboard Try</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+
 </head>
 <body>
     <!-- the whole screen  -->
@@ -25,22 +26,17 @@
                     </div>
 
 
-                    <a href="{% url 'dashboard' %}" >
-                        <button class="btn-dashboard">overview</button>
-                    </a>
-                    <a href="{% url 'clients' %}">
-                        <button class="btn-dashboard">users</button>
-                    </a>
-                    <a href="{% url 'database' %}">
-                        <button class="btn-dashboard">database</button>
-                    </a>
+                   
+                    <a href="{% url 'dashboard' %}" >overview </a>
+                    <a href="{% url 'clients' %}">clients</a>
+                    <a href="{% url 'database' %}"  >Database</a>
 
                 </div>
                 <div class="team"></div>
 
             </div>
 
-
+            <!-- The Part that contains all the info -->
             <div class="generalInfo">
                 <div class="heading">
                     <h2>Welcome </h2>
@@ -48,16 +44,81 @@
                 </div>
                 <div class="stats">
                     <div class="users">
-                        <div class="active"></div>
-                        <div class="journals"></div>
-                        <div class="joined"></div>
+
+                        <div class="active">
+                            <p>Active Users</p>
+                            <h3>801</h3>
+                            <div class="cic"></div>
+                        </div>
+
+
+                        <div class="journals">
+                            <p>Total Journals</p>
+                            <h3>4028</h3>
+                            <div class="cic"></div>
+                        </div>
+
+
+                        <div class="joined">
+                            <p>Accounts Created</p>
+                            <h3>801</h3>
+                            <div class="cic"></div>
+                        </div>
 
 
                     </div>
-                    <div class="admins"></div>
+
+
+
+                    <!-- The admin stats section -->
+
+                    <div class="admins">
+
+                       <div class="backends">
+                        <p>Total Backends</p>
+                        <h2>4</h2>
+                        <div class="cic"></div>
+                       </div>
+
+                       <div class="frontends">
+                          <p>Total frontends</p>
+                          <h2>8</h2>
+                          <div class="cic"></div>
+                       </div>
+
+                       <div class="storage">
+                          <p>Total Storage Units</p>
+                          <h2>7</h2>
+                          <div class="cic"></div>
+                       </div>
+
+
+                    </div>
                 </div>
+
+                 <!-- The Overview of Statistics -->
+                       <div class="secondBox">
+                          <div class="backendOverView">
+                            <table>
+                                <th>
+                                   <td>Admin Name</td>
+                                   <td>Admin ID</td>
+                                </th>
+
+                                <tr>
+                                   <td>Daniel Asankumah</td>
+                                   <td>22305896</td>
+                                </tr>
+                            </table>
+                    
+            
+                          </div>
+                        </div>
             </div>
+
         </div>
+
+       
         
     </section>
 
