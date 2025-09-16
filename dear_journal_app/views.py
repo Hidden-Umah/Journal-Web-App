@@ -8,6 +8,8 @@ from .models import FrontendDeveloper
 
 # Create your views here.
 
+#  still working
+
 def landing (request):
     return render(request,"index.html")
 
