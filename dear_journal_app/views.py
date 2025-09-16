@@ -24,7 +24,6 @@ def dashboard_view(request):
     return render(request,"dashboard/dashboard.html")
 
 #Clients dashboard page
-@login_required
 def clients(request):
     return render(request, "dashboard/clients.html")
 

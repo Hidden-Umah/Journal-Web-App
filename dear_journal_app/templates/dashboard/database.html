@@ -20,13 +20,13 @@
               <button class="dear">🚀</button>
             </div>
             <a>
-            <button class="overview">overview</button>
+              <button class="overview">overview</button>
             </a>
             <a>
-            <button class="clients">users</button>
+              <button class="clients">users</button>
             </a>
             <a>
-            <button class="Database">Database</button>
+              <button class="Database">Database</button>
             </a>
           </div>
           <div class="team"></div>
@@ -72,43 +72,49 @@
       </div>
     </section>
 
-    <div class="frontendProfiles">
-      <div class="legend1">
-        <div class="circle1"></div>
-
-        <h1>Registered Admins</h1>
-
-        <div class="circle2"></div>
+    <section class="secondSection">
+      <div class="sidePanel">
+        
+        <div class="team"></div>
       </div>
+      <div class="frontendProfiles">
+        <div class="legend1">
+          <div class="circle1"></div>
 
-      <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-          <tr>
-            <th>Username</th>
-            <th>Bio</th>
-            <th>Skills</th>
-            <th>Profile Picture</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for dev in developers %}
-          <tr>
-            <td>{{ dev.username }}</td>
-            <td>{{ dev.bio }}</td>
-            <td>{{ dev.skills }}</td>
-            <td>
-              {% if dev.profile_picture %}
-              <img
-                src="{{ dev.profile_picture.url }}"
-                alt="Profile Pic"
-                width="80"
-              />
-              {% else %} No Image {% endif %}
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
+          <h1>Registered Admins</h1>
+
+          <div class="circle2"></div>
+        </div>
+
+        <table class="table table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>Username</th>
+              <th>Bio</th>
+              <th>Skills</th>
+              <th>Profile Picture</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for dev in developers %}
+            <tr>
+              <td>{{ dev.username }}</td>
+              <td>{{ dev.bio }}</td>
+              <td>{{ dev.skills }}</td>
+              <td>
+                {% if dev.profile_picture %}
+                <img
+                  src="{{ dev.profile_picture.url }}"
+                  alt="Profile Pic"
+                  width="80"
+                />
+                {% else %} No Image {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
   </body>
 </html>
