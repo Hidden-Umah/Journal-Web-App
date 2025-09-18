@@ -121,11 +121,6 @@ def logout_view(request):
     messages.success(request, "You have been logged out successfully!")
     return redirect("landing")
 
-def logout_view(request):
-        logout(request)
-        return redirect('landing')
-
-
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
