@@ -1,123 +1,121 @@
-from django.contrib.auth.decorators import login_required , user_passes_test 
-from django.contrib.auth import login
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
-from django.contrib import messages
 from django.shortcuts import render, redirect
-from .models import FrontendDeveloper
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .models import Client
 
-# Create your views here.
 
-#  still working
+# ----------------------------
+# Landing Page
+# ----------------------------
+def landing(request):
+    return render(request, "index.html")
 
-def landing (request):
-    return render(request,"index.html")
 
-# Users Notepads
+# ----------------------------
+# Client Pages (requires login)
+# ----------------------------
+def check_client_session(request):
+    """Helper to check if client is logged in"""
+    return request.session.get("client_id")
+
+
+def webpage_view(request):
+    if not check_client_session(request):
+        return redirect("signin")
+    return render(request, "webpage.html", {
+        "user": {"username": request.session.get("client_username")}
+    })
+
+
+def studio_view(request):
+    if not check_client_session(request):
+        return redirect("signin")
+    return render(request, "studio.html")
+
+
+# ----------------------------
+# Admin Pages
+# ----------------------------
 @login_required
-def notepad_view(request):
-    return render(request, "notepad/studio.html")
-
-#  the Admin dashboard
-
 def dashboard_view(request):
-    return render(request,"dashboard/dashboard.html")
+    return render(request, "dashboard/dashboard.html")
 
-#Clients dashboard page
+
+@login_required
 def clients(request):
     return render(request, "dashboard/clients.html")
 
-# Webpage
+
 @login_required
-def webpage_view(request):
-    return render(request, "notepad/webpage.html")
-
-# Admin Database
-
 def database(request):
     users = User.objects.all()
-    developers = FrontendDeveloper.objects.all()
-    return render(request, 'dashboard/database.html' , {
-        'users': users,
-        'developers':developers})
-
-def join_frontend_team(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        bio = request.POST.get("bio")
-        skills = request.POST.get("skills")
-        profile_picture = request.FILES.get("profile_picture")
-        passkey = request.POST.get("passkey")
-
-        # Save into DB
-        FrontendDeveloper.objects.create(
-            username=username,
-            bio=bio,
-            skills=skills,
-            profile_picture=profile_picture,
-            passkey=passkey,
-        )
-
-        return redirect("frontend_login")  # redirect to login after submission
-
-    return render(request, "dashboard/join_frontend_team.html")
+    clients = Client.objects.all()
+    return render(request, "dashboard/database.html", {
+        "users": users,
+        "clients": clients
+    })
 
 
-
-#  This is for the our clients 
-
+# ----------------------------
+# Client Authentication
+# ----------------------------
 def signup(request):
     if request.method == "POST":
         username = request.POST.get("username")
         email = request.POST.get("email")
         password = request.POST.get("password")
+        confirm_password = request.POST.get("confirm_password")
 
-        # check if user exists
-        if User.objects.filter(username=username).exists():
+        # Password match check
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match!")
+            return redirect("signup")
+
+        # Check if username exists
+        if Client.objects.filter(username=username).exists():
             messages.error(request, "Username already taken")
             return redirect("signup")
-        
-        # check if email exists
-        if User.objects.filter(email=email).exists():
-            messages.error(request, "Email already registered")
-            return redirect("signup")
 
-        # Save to DB
-        user = User.objects.create_user(
-            username=username,
-            email=email,
-            password=password
-        )
+        # Create client
+        client = Client.objects.create(username=username, passkey=password, email=email)
 
-        # log them in immediately
-        login(request, user)
+        # Save session
+        request.session["client_id"] = client.id
+        request.session["client_username"] = client.username
 
-        # Signup success message
         messages.success(request, f"Welcome {username}, your account was created successfully!")
-
-        # redirect to notepad instead of dashboard
-        return redirect("notepad")
+        return redirect("webpage")
 
     return render(request, "signup.html")
 
 
-
 def signin(request):
-    if request.user.is_authenticated:
-        return redirect("notepad")
-    
+    # If already logged in, go to webpage
+    if check_client_session(request):
+        return redirect("webpage")
+
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
 
-        user = authenticate(request, username=username, password=password)
+        try:
+            client = Client.objects.get(username=username, passkey=password)
+            # Save session
+            request.session["client_id"] = client.id
+            request.session["client_username"] = client.username
 
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Welcome back! Sign in successful")
-            return redirect("notepad")   # redirect to notepad after login
-        else:
+            messages.success(request, f"Welcome back {username}!")
+            return redirect("webpage")
+        except Client.DoesNotExist:
             messages.error(request, "Invalid username or password")
             return redirect("signin")
 
     return render(request, "signin.html")
+
+
+def logout_view(request):
+    # Clear session and redirect to landing page
+    request.session.flush()
+    messages.success(request, "You have been logged out successfully!")
+    return redirect("landing")
