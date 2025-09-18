@@ -3,47 +3,59 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DearJournal - Welcome Page</title>
+    <title>Welcome – DearJournal</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/webpage.css' %}">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="{% static 'images/logo.png' %}">
+            <img src="{% static 'images/logo.png' %}" alt="DearJournal Logo">
         </div>
         <div class="actions">
-            <div class="logout-link">
-                <a href="{% url 'signout' %}" class="btn">Logout</a>
-            </div>
+            <a href="{% url 'signout' %}" class="btn">Logout</a>
         </div>
     </header>
 
+    <!-- Hero -->
     <main class="main-content">
-       <div class="container">
-            <div class="hero">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <!-- Got rid of the "strong" and made the font-weight bold instead. 
-                        Defined h1 fonts and sizes in index.css 
-                        Also got rid of all <br> and defined max width on .hero-title css
-                        -->
-                        <h1 class="hero-title">
-                            Welcome {{ user.username }}
-                        </h1>
-                        <!-- Redirecting sign up button to signup.html using django on next line -->
-                        <a href="{% url 'studio' %}">
-                            <button class="btn-cta"> Start writing →</button>
-                        </a>                        
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-container">
-                        <img src="{% static 'images/woman.jpg' %}" alt="Woman journaling at modern desk with laptop and coffee" class="hero-img">
-                        <div class="image-overlay"></div>
-                    </div>
-                </div>
+        <div class="container hero">
+            <div class="hero-text">
+                <h1 class="hero-title">Welcome back, {{ user.username }} 👋</h1>
+                <p class="hero-subtitle">Your private space to reflect, write, and grow.</p>
+                <a href="{% url 'studio' %}" class="btn-cta">Start Writing →</a>
             </div>
+            <div class="hero-image">
+                <img src="{% static 'images/woman.jpg' %}" alt="Journaling at a modern desk">
+            </div>
+        </div>
     </main>
+
+    <!-- Motivation -->
+    <section class="motivation container">
+        <h2>Today’s Inspiration ✨</h2>
+        <p id="quote"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 DearJournal · Write for yourself, every day.</p>
+    </footer>
+
+    <!-- Script for rotating quotes -->
+    <script>
+        const quotes = [
+            "“Journaling is like whispering to one’s self and listening at the same time.” – Mina Murray",
+            "“Fill your paper with the breathings of your heart.” – William Wordsworth",
+            "“Writing is the painting of the voice.” – Voltaire",
+            "“Keep a journal, and one day it will keep you.” – Mae West",
+            "“The shortest pencil is better than the longest memory.” – Chinese Proverb"
+        ];
+
+        // Pick a random quote
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById("quote").textContent = randomQuote;
+    </script>
 </body>
 </html>
