@@ -10,5 +10,6 @@ urlpatterns = [
     path("dashboard/", views.dashboard_view, name="dashboard"),
     path("clients/", views.clients, name="clients"),
     path("notepad/", views.notepad_view, name="notepad"),
+    path("studio/", views.studio_view, name="studio"),  # ← add this
     path("database/", views.database, name="database"),
 ]

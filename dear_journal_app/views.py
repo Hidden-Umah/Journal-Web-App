@@ -23,17 +23,16 @@ def check_client_session(request):
 
 
 def webpage_view(request):
-    if not check_client_session(request):
-        return redirect("signin")
-    return render(request, "webpage.html", {
-        "user": {"username": request.session.get("client_username")}
+    return render(request, "notepad/webpage.html", {
+        "user": request.user
     })
+
 
 
 def studio_view(request):
     if not check_client_session(request):
         return redirect("signin")
-    return render(request, "studio.html")
+    return render(request, "notepad/studio.html")
 
 
 # ----------------------------
