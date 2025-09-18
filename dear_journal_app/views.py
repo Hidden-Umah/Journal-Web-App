@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Client
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 
 # ----------------------------
@@ -119,3 +121,16 @@ def logout_view(request):
     request.session.flush()
     messages.success(request, "You have been logged out successfully!")
     return redirect("landing")
+
+def logout_view(request):
+        logout(request)
+        return redirect('landing')
+
+
+
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+@login_required  # ensures only logged-in users can access
+def notepad_view(request):
+    return render(request, "studio.html")  # or "notepad.html" if that's the template
