@@ -225,7 +225,15 @@ a{
 
 }
 
-.cic {
+.cic1 {
+    height: 50%;
+    width: 100%;
+    background-image: url('https://i.pinimg.com/1200x/58/74/68/5874680b9860a413a3b9e15ae51cda46.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cic2 {
     height: 50%;
     width: 100%;
     background-image: url('pie\ chart.png');
@@ -233,6 +241,39 @@ a{
     background-position: center;
     background-repeat: no-repeat;
 }
+.cic3 {
+    height: 50%;
+    width: 100%;
+    background-image: url('pie\ chart.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cic4 {
+    height: 50%;
+    width: 100%;
+    background-image: url('pie\ chart.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cic5 {
+    height: 50%;
+    width: 100%;
+    background-image: url('pie\ chart.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cic6 {
+    height: 50%;
+    width: 100%;
+    background-image: url('pie\ chart.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 .backends {
     display: flex;
