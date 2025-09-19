@@ -3,123 +3,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Try</title>
-    {% load static %}
+    <title>Dear Journal Dashboard</title>
     <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
-
 </head>
 <body>
-    <!-- the whole screen  -->
-    <section class="firstSection">
+    <!-- Dashboard container -->
+    <section class="dashboard">
 
-        <!-- the box inwhich all the elements reside -->
-        <div class="mainBox">
-
-               <!-- the side pannel at the left -->
-            <div class="sidePanel">
-                <div class="locations">
-
-
-                    <div class="company">
-                        <div class="dj"></div>
-                        <button class="dear">🚀</button>
-                    </div>
-
-
-                   
-                    <a href="{% url 'dashboard' %}" >overview </a>
-                    <a href="{% url 'clients' %}">clients</a>
-                    <a href="{% url 'database' %}"  >Database</a>
-
+        <div class="generalInfo">
+            <div class="heading">
+                <h2>Dear Journal Dashboard</h2>
+                <div class="dashboard-actions" style="margin-top:18px; display:flex; gap:18px; justify-content:center;">
+                    <a href="#" class="dashboard-btn">Overview</a>
+                    <a href="#" class="dashboard-btn dashboard-btn-alt">Database</a>
                 </div>
-                <div class="team"></div>
-
             </div>
 
-            <!-- The Part that contains all the info -->
-            <div class="generalInfo">
-                <div class="heading">
-                    <h2>Welcome </h2>
-
-                </div>
-                <div class="stats">
-                    <div class="users">
-
-                        <div class="active">
-                            <p>Active Users</p>
-                            <h3>801</h3>
-                            <div class="cic1"></div>
-                        </div>
-
-
-                        <div class="journals">
-                            <p>Total Journals</p>
-                            <h3>4028</h3>
-                            <div class="cic2"></div>
-                        </div>
-
-
-                        <div class="joined">
-                            <p>Accounts Created</p>
-                            <h3>801</h3>
-                            <div class="cic3"></div>
-                        </div>
-
-
+            <!-- Statistics section -->
+            <div class="stats">
+                <div class="users">
+                    <div class="active">
+                        <p>Active Users</p>
+                        <h3>801</h3>
+                        <div class="cic1"></div>
                     </div>
 
+                    <div class="journals">
+                        <p>Total Journals</p>
+                        <h3>1200</h3>
+                    </div>
 
+                    <div class="joined">
+                        <p>Accounts Created</p>
+                        <h3>1500</h3>
+                    </div>
+                </div>
 
-                    <!-- The admin stats section -->
-
-                    <div class="admins">
-
-                       <div class="backends">
+                <div class="admins">
+                    <div class="backends">
                         <p>Total Backends</p>
-                        <h2>4</h2>
-                        <div class="cic4"></div>
-                       </div>
+                        <h3>5</h3>
+                    </div>
 
-                       <div class="frontends">
-                          <p>Total frontends</p>
-                          <h2>8</h2>
-                          <div class="cic5"></div>
-                       </div>
+                    <div class="frontends">
+                        <p>Total Frontends</p>
+                        <h3>3</h3>
+                    </div>
 
-                       <div class="storage">
-                          <p>Total Storage Units</p>
-                          <h2>7</h2>
-                          <div class="cic6"></div>
-                       </div>
-
-
+                    <div class="storage">
+                        <p>Storage in Use</p>
+                        <h3>2TB</h3>
                     </div>
                 </div>
-
-                 <!-- The Overview of Statistics -->
-                       <div class="secondBox">
-                          <div class="backendOverView">
-                            <table>
-                                <th>
-                                   <td>Admin Name</td>
-                                   <td>Admin ID</td>
-                                </th>
-
-                                <tr>
-                                   <td>Daniel Asankumah</td>
-                                   <td>22305896</td>
-                                </tr>
-                            </table>
-                    
-            
-                          </div>
-                        </div>
             </div>
-
         </div>
 
-       
-        
     </section>
 
     <script src="{% static 'dashboard/js/script.js' %}"></script>

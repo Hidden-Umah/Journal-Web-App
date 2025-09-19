@@ -21,14 +21,14 @@ def check_client_session(request):
     """Helper to check if client is logged in"""
     return request.session.get("client_id")
 
-
+@login_required
 def webpage_view(request):
     return render(request, "notepad/webpage.html", {
         "user": request.user
     })
 
 
-
+@login_required
 def studio_view(request):
     if not check_client_session(request):
         return redirect("signin")
@@ -38,17 +38,17 @@ def studio_view(request):
 # ----------------------------
 # Admin Pages
 # ----------------------------
-@login_required
+
 def dashboard_view(request):
     return render(request, "dashboard/dashboard.html")
 
 
-@login_required
+
 def clients(request):
     return render(request, "dashboard/clients.html")
 
 
-@login_required
+
 def database(request):
     users = User.objects.all()
     clients = Client.objects.all()
