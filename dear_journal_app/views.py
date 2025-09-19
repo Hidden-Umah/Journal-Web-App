@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from .models import Client
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
+from .models import Journal, Client
+
 
 
 # ----------------------------
@@ -49,13 +52,42 @@ def clients(request):
 
 
 
+
+from .models import Journal
+
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Journal
+
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Journal
+
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Client, Journal  # import Client + Journal
+
 def database(request):
-    users = User.objects.all()
+    # Superusers (admins)
+    admins = User.objects.filter(is_superuser=True)
+
+    # Clients (your custom model)
     clients = Client.objects.all()
-    return render(request, "dashboard/database.html", {
-        "users": users,
-        "clients": clients
-    })
+
+    # Journals (linked to users for now, can be updated to link to Client if you prefer)
+    journals = Journal.objects.all()
+
+    context = {
+        "admins": admins,
+        "clients": clients,
+        "journals": journals,
+        "total_admins": admins.count(),
+        "total_clients": clients.count(),
+        "total_journals": journals.count(),
+    }
+    return render(request, "dashboard/database.html", context)
+
+
 
 
 # ----------------------------
@@ -128,3 +160,12 @@ from django.contrib.auth.decorators import login_required
 @login_required  # ensures only logged-in users can access
 def notepad_view(request):
     return render(request, "studio.html")  # or "notepad.html" if that's the template
+
+
+from django.shortcuts import get_object_or_404
+
+def delete_client(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    client.delete()
+    messages.success(request, f"Client '{client.username}' deleted successfully.")
+    return redirect("database")

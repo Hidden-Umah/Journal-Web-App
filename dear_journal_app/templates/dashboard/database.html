@@ -1,115 +1,143 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Database</title>
-
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'dashboard/css/database.css' %}" />
+    <meta charset="UTF-8" />
+    <title>Database - Dear Journal</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}" />
   </head>
   <body>
-    <!-- the whole screen  -->
-    <section class="firstSection">
-      <!-- the box inwhich all the elements reside -->
-      <div class="mainBox">
-        <!-- the side pannel at the left -->
-        <div class="sidePanel">
-          <div class="locations">
-            <div class="company">
-              <div class="dj"></div>
-              <button class="dear">🚀</button>
-            </div>
-            <a>
-              <button class="overview">overview</button>
-            </a>
-            <a>
-              <button class="clients">users</button>
-            </a>
-            <a>
-              <button class="Database">Database</button>
-            </a>
-          </div>
-          <div class="team"></div>
-        </div>
-
-        <div class="generalInfo">
-          <div class="heading">
-            <h2>Database</h2>
-          </div>
-          <div class="stats">
-            <div class="legend">
-              <div class="circle1"></div>
-
-              <h1>Registered Admins</h1>
-
-              <div class="circle2"></div>
-            </div>
-
-            <table>
-              <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Date Joined</th>
-                <th>Last Login</th>
-              </tr>
-              {% for user in users %}
-              <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.date_joined }}</td>
-                <td>{{ user.last_login }}</td>
-              </tr>
-              {% empty %}
-              <tr>
-                <td colspan="5">No users Registered</td>
-              </tr>
-              {% endfor %}
-            </table>
+    <section class="dashboard">
+      <div class="generalInfo">
+        <!-- Header -->
+        <div class="heading">
+          <h2>Database Overview</h2>
+          <div
+            class="dashboard-actions"
+            style="
+              margin-top: 18px;
+              display: flex;
+              gap: 18px;
+              justify-content: center;
+            "
+          >
+            <a href="{% url 'dashboard' %}" class="dashboard-btn">Overview</a>
+            <a
+              href="{% url 'database' %}"
+              class="dashboard-btn dashboard-btn-alt"
+              >Database</a
+            >
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="secondSection">
-      <div class="sidePanel">
-        
-        <div class="team"></div>
-      </div>
-      <div class="frontendProfiles">
-        <div class="legend1">
-          <div class="circle1"></div>
-
-          <h1>Registered Admins</h1>
-
-          <div class="circle2"></div>
-        </div>
-
-        <table class="table table-bordered table-hover">
-          <thead class="table-dark">
+        <!-- Admins -->
+        <h2>Admins (Superusers)</h2>
+        <p>Total Admins: {{ total_admins }}</p>
+        <table>
+          <thead>
             <tr>
+              <th>ID</th>
               <th>Username</th>
-              <th>Bio</th>
-              <th>Skills</th>
-              <th>Profile Picture</th>
+              <th>Email</th>
+              <th>Date Joined</th>
             </tr>
           </thead>
           <tbody>
-            {% for dev in developers %}
+            {% for admin in admins %}
             <tr>
-              <td>{{ dev.username }}</td>
-              <td>{{ dev.bio }}</td>
-              <td>{{ dev.skills }}</td>
+              <td>{{ admin.id }}</td>
+              <td>{{ admin.username }}</td>
+              <td>{{ admin.email }}</td>
+              <td>{{ admin.date_joined|date:"Y-m-d" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="4" class="empty-row">No admins found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <!-- Clients -->
+        <h2>Clients</h2>
+        <p>Total Clients: {{ total_clients }}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Profile Picture</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for client in clients %}
+            <tr>
+              <td>{{ client.id }}</td>
+              <td>{{ client.username }}</td>
+              <td>{{ client.email }}</td>
               <td>
-                {% if dev.profile_picture %}
+                {% if client.profile_picture %}
                 <img
-                  src="{{ dev.profile_picture.url }}"
-                  alt="Profile Pic"
-                  width="80"
+                  src="{{ client.profile_picture.url }}"
+                  alt="Profile"
+                  width="40"
+                  height="40"
+                  style="border-radius: 50%"
                 />
-                {% else %} No Image {% endif %}
+                {% else %} — {% endif %}
               </td>
+              <td>
+                <a
+                  href="{% url 'delete_client' client.id %}"
+                  onclick="return confirm('Are you sure you want to delete {{ client.username }}?')"
+                  class="dashboard-btn dashboard-btn-alt"
+                  style="
+                    background: red;
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                  "
+                >
+                  Delete
+                </a>
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5" class="empty-row">No clients found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <!-- Journals -->
+        <h2>Journals</h2>
+        <p>Total Journals: {{ total_journals }}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Title</th>
+              <th>Date Created</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for journal in journals %}
+            <tr>
+              <td>{{ journal.id }}</td>
+              <td>{{ journal.user.username }}</td>
+              <td>{{ journal.title }}</td>
+              <td>{{ journal.created_at|date:"Y-m-d" }}</td>
+              <td>{{ journal.status }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5" class="empty-row">No journals found.</td>
             </tr>
             {% endfor %}
           </tbody>

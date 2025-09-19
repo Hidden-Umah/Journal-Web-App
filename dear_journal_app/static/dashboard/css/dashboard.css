@@ -184,7 +184,7 @@ tr:hover {
 .dashboard-btn:hover, .dashboard-btn:focus {
     background: #ffffff;
     color: #048BA8;
-    box-shadow: 0 4px 16px #048ba833;
+    box-shadow: 0 4px 16px #048ba833; 
 }
 .dashboard-btn-alt {
     background: #048BA8;

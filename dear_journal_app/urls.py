@@ -11,5 +11,11 @@ urlpatterns = [
     path("clients/", views.clients, name="clients"),
     path("notepad/", views.notepad_view, name="notepad"),
     path("studio/", views.studio_view, name="studio"),  # ← add this
+    path("dashboard/database/", views.database, name="database"),
+   
+     # ... your existing paths ...
     path("database/", views.database, name="database"),
+    path("database/delete-client/<int:client_id>/", views.delete_client, name="delete_client"),
+
+    
 ]

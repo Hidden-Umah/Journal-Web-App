@@ -1,305 +1,95 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  font-family: Arial, sans-serif;
+  background: #f5faff;
+  margin: 0;
+  padding: 20px;
 }
 
-.firstSection {
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(212, 211, 211);
-    
-}
-
-.mainBox {
-    display: flex;
-    justify-content: space-between;
-    
-    
-
-}
-
-.sidePanel {
-    position: sticky;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 10%;
-    height: 95vh;
-    background-color: white;
-    margin-top: 15px;
-    margin-left: 10px;
-    border-radius: 8px;
-}
-
-.generalInfo {
-    display: flex;
-    align-items: center;
-    flex-direction:column ;
-    width: 80%;
-    height: 95vh;
-    margin-top: 15px;
-    margin-right: 30px;
-    border-radius: 8px;
+.dashboard .generalInfo {
+  max-width: 1200px;
+  margin: auto;
 }
 
 .heading {
-    width: 100%;
-    height: 60px;
-    margin-left: 100px;
-    color:#333; ;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+.heading h2 {
+  color: #004080;
+}
 
- 
+.dashboard-actions {
+  margin-top: 10px;
+}
 
+.dashboard-btn {
+  background: #0073e6;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.dashboard-btn:hover {
+  background: #005bb5;
+}
+
+.dashboard-btn-alt {
+  background: #005bb5;
+}
 
 .stats {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 50%;
-    border-radius: 16px;
-    row-gap: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-
-
-
-.admins {
-    display: flex;
-    width: 100%;
-    height: 50%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 16px;
-   
-    
+.stat-box {
+  flex: 1;
+  background: #e6f2ff;
+  border: 1px solid #b3d9ff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-.active {
-    width: 33%;
-    height: 100%;
-    background-color: white;
-    border-radius: 12px;
+.stat-box h3 {
+  color: #004080;
+  margin-bottom: 5px;
 }
 
-.joined{
-    width: 33%;
-    height: 100%;
-    background-color: white;
-    border-radius: 12px;
+.stat-box p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0073e6;
 }
-
-.journals{
-    width: 33%;
-    height: 100%;
-    background-color: white;
-    border-radius: 12px;
-}
-
-
-
-.locations {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 45%;
-    background-color: rgb(255, 255, 255);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    
-}
-.team {
-    width: 100%;
-    height: 45%;
-    background-image:url('https://i.pinimg.com/736x/d2/33/8a/d2338a86dbe9c0fc812a1c1e2a2f0372.jpg');
-    background-size: cover;
-    background-position: center;
-
-    border-radius: 8px;
-}
-
-
-.overview {
-    display: flex;
-    font-weight: 600;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    border: none;
-    background-color: white;
-    border-radius: 5px;
-    height: 30px;
-}
-
-.clients {
-    display: flex;
-    font-weight: 600;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    background-color: white;
-}
-
-.Database {
-    display: flex;
-    font-weight: 600;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    background-color: white;
-
-}
-
-.Database:hover {
-    background-color: #95ff1b;
-}
-
-.clients:hover {
-    background-color: #95ff1b;
-}
-
-.overview:hover {
-    background-color: #95ff1b;
-}
-
-
-
-.company {
-    width: 100%;
-    height: 25%;
-    background-color: white;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-bottom: 10px;
-}
-
-
-.dj {
-    width: 100%;
-    height: 50%;
-    background-image: url('https://image.cdn2.seaart.me/2025-08-23/d2kh4vte878c73edrlr0-4/2cf9a073419dc275a325298197ece758_high.webp');
-    background-position: center;
-    background-size: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.dear {
-    width: 100%;
-    border: none;
-    background-color: white;
-}
-
-
 
 table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #b3d9ff;
+  text-align: left;
 }
 
 table th {
-    background-color: #5309ff;
-    color: white;
-    text-align: left;
-    padding: 12px 15px;
-    font-size: 16px;
+  background: #0073e6;
+  color: white;
 }
-
-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    color: #333;
-}
-
 
 table tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background: #f0f8ff;
 }
 
-
-table tr:hover {
-    background-color: #ffb066;
-}
-
-
-h1 {
-    text-align: center;
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.legend {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-
-    width: 70%;
-    height: 40px;
-    background-color: white;
-    border-radius: 8px;
-}
-
-.legend h1{
-    margin-top: 15px;
-}
-
-.circle1 {
-    width: 20px;
-    height: 20px;
-    background-color: #25c704;
-    border-radius: 50%;
-}
-
-.circle2 {
-    width: 20px;
-    height: 20px;
-    background-color: #c77904;
-    border-radius: 50%;
-}
-
-
-
-.frontendProfiles {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    background-color: rgb(212, 211, 211);
-    flex-shrink: 0;
-}
-
-.legend1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    margin-top: 50px;
-    width: 70%;
-    height: 40px;
-    background-color: white;
-    border-radius: 8px;
-}
-
-.legend1 h1 {
-    margin-top: 15px;
+.empty-row {
+  text-align: center;
+  color: gray;
 }
