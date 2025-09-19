@@ -4,3 +4,4 @@ backend
 __pycache__/
 dear_journal/__pycache__
 *.py[cod]
+db.sqlite3
