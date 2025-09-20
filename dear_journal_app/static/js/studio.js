@@ -704,29 +704,42 @@ createBtn.addEventListener('click', () => {
 });
 
 // Timer function
-function startTimer(duration) {
-    let timer = duration, minutes, seconds;
-    const timerDisplay = document.createElement('div');
-    timerDisplay.id = "timerDisplay";
-    timerDisplay.style.position = 'fixed';
-    timerDisplay.style.top = '10px';
-    timerDisplay.style.right = '20px';
-    timerDisplay.style.fontSize = '1.2rem';
-    timerDisplay.style.background = '#eee';
-    timerDisplay.style.padding = '5px 10px';
-    timerDisplay.style.borderRadius = '5px';
-    document.body.appendChild(timerDisplay);
+let timerInterval;
+let timerSeconds = 0;
+const timerDisplay = document.getElementById('studio-timer');
+const timerStart = document.getElementById('timerStart');
+const timerPause = document.getElementById('timerPause');
+const timerReset = document.getElementById('timerReset');
 
-    const countdown = setInterval(() => {
-        minutes = Math.floor(timer / 60);
-        seconds = timer % 60;
+function updateTimerDisplay() {
+    const hrs = String(Math.floor(timerSeconds / 3600)).padStart(2, '0');
+    const mins = String(Math.floor((timerSeconds % 3600) / 60)).padStart(2, '0');
+    const secs = String(timerSeconds % 60).padStart(2, '0');
+    timerDisplay.textContent = `${hrs}:${mins}:${secs}`;
+}
 
-        timerDisplay.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-
-        if (--timer < 0) {
-            clearInterval(countdown);
-            alert("Well done! Time's up.");
-            window.location.href = "/"; // redirect to homepage or dashboard
-        }
+function startTimer() {
+    if (timerInterval) return;
+    timerInterval = setInterval(() => {
+        timerSeconds++;
+        updateTimerDisplay();
     }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function resetTimer() {
+    pauseTimer();
+    timerSeconds = 0;
+    updateTimerDisplay();
+}
+
+if (timerStart && timerPause && timerReset) {
+    timerStart.addEventListener('click', startTimer);
+    timerPause.addEventListener('click', pauseTimer);
+    timerReset.addEventListener('click', resetTimer);
+    updateTimerDisplay();
 }

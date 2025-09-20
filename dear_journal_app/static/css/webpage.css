@@ -258,7 +258,7 @@ body {
 
 .features-list li {
     font-size: 16px;
-    color: #202030;
+    color: #0d6892;
     margin-bottom: 10px;
     padding-left: 0;
     display: flex;
@@ -297,7 +297,7 @@ body {
 
     .hero-image img {
         max-width: 250px;
-    }
+    } 
 
     .features-list, .hero-text {
         max-width: 100%;
@@ -318,4 +318,29 @@ body {
 
 .btn-danger:hover {
     background-color: #c0392b;
+}
+
+/* Style for the logout button */
+.logout-link a {
+    display: inline-block;
+    background: #048BA8;
+    color: #DAF0EE;
+    padding: 10px 26px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(4,139,168,0.08);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.logout-link a:hover,
+.logout-link a:focus {
+    background: #202030;
+    color: #DAF0EE;
+    box-shadow: 0 4px 16px #048ba833;
 }
