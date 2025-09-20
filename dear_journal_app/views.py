@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Client, Journal
+from django.contrib.auth import logout
 
 # ----------------------------
 # Landing Page
@@ -130,11 +131,12 @@ def signin(request):
 
     return render(request, "signin.html")
 
-def logout_view(request):
-    # Clear session and redirect to landing page
-    request.session.flush()
-    messages.success(request, "You have been logged out successfully!")
-    return redirect("landing")
+
+
+def signout_view(request):
+    logout(request)  # Logs the user out
+    return redirect('landing')  # Redirect to index/landing page
+
 
 # ----------------------------
 # Client Profile
@@ -168,3 +170,20 @@ def delete_account(request):
         return redirect("landing")
 
     return render(request, "notepad/delete_account.html", {"client": client})
+
+from django.shortcuts import render, get_object_or_404
+from .models import Client
+
+def profile_view(request):
+    # Example: get client by username or logged-in user
+    client = get_object_or_404(Client, username=request.user.username)
+    return render(request, "notepad/profile.html", {
+        "client": client
+    })
+
+from django.shortcuts import redirect
+from django.contrib.auth import logout
+
+def signout_view(request):
+    logout(request)
+    return redirect('landing')  # Or whatever your index page name is

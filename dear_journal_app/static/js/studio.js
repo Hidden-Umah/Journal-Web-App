@@ -1,3 +1,46 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('popup');
+    const newBtn = document.getElementById('newBtn');
+    const createBtn = document.getElementById('createBtn');
+    const fileNameInput = document.getElementById('fileNameInput');
+    const emojis = document.querySelectorAll('#moodSelector .emoji');
+    const fileNameDisplay = document.getElementById('fileName');
+
+    let selectedMood = '';
+
+    // Show popup when New Document is clicked
+    newBtn.addEventListener('click', () => {
+        popup.classList.add('show');
+    });
+
+    // Select mood
+    emojis.forEach(emoji => {
+        emoji.addEventListener('click', () => {
+            emojis.forEach(e => e.classList.remove('selected'));
+            emoji.classList.add('selected');
+            selectedMood = emoji.dataset.mood;
+        });
+    });
+
+    // Create button
+    createBtn.addEventListener('click', () => {
+        const fileName = fileNameInput.value.trim() || 'Untitled Document';
+        fileNameDisplay.textContent = fileName;
+        popup.classList.remove('show');
+
+        // You can insert mood info if needed
+        console.log('Selected mood:', selectedMood);
+    });
+
+    // Close popup by clicking outside content
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.classList.remove('show');
+        }
+    });
+});
+
+
 class ModernWordPad {
     constructor() {
         this.editor = document.getElementById('editor');
@@ -623,3 +666,67 @@ document.addEventListener("keypress", startTimers);
 
 // Start the timers when page loads
 startTimers();
+
+const popup = document.getElementById('popup');
+const createBtn = document.getElementById('createBtn');
+const fileNameInput = document.getElementById('fileNameInput');
+const moodEmojis = document.querySelectorAll('.emoji');
+let selectedMood = null;
+
+// Emoji selection
+moodEmojis.forEach(emoji => {
+    emoji.addEventListener('click', () => {
+        moodEmojis.forEach(e => e.classList.remove('selected'));
+        emoji.classList.add('selected');
+        selectedMood = emoji.dataset.mood;
+    });
+});
+
+// On create
+createBtn.addEventListener('click', () => {
+    const fileName = fileNameInput.value.trim();
+    if(!fileName || !selectedMood){
+        alert("Please enter a file name and select a mood!");
+        return;
+    }
+
+    // Set document title
+    document.title = fileName + " - DearJournal Studio";
+
+    // Set file name display
+    document.getElementById('fileName').textContent = fileName + " " + selectedMood;
+
+    // Hide popup
+    popup.style.display = 'none';
+
+    // Start timer (example: 5 minutes)
+    startTimer(5*60); // in seconds
+});
+
+// Timer function
+function startTimer(duration) {
+    let timer = duration, minutes, seconds;
+    const timerDisplay = document.createElement('div');
+    timerDisplay.id = "timerDisplay";
+    timerDisplay.style.position = 'fixed';
+    timerDisplay.style.top = '10px';
+    timerDisplay.style.right = '20px';
+    timerDisplay.style.fontSize = '1.2rem';
+    timerDisplay.style.background = '#eee';
+    timerDisplay.style.padding = '5px 10px';
+    timerDisplay.style.borderRadius = '5px';
+    document.body.appendChild(timerDisplay);
+
+    const countdown = setInterval(() => {
+        minutes = Math.floor(timer / 60);
+        seconds = timer % 60;
+
+        timerDisplay.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+
+        if (--timer < 0) {
+            clearInterval(countdown);
+            alert("Well done! Time's up.");
+            window.location.href = "/"; // redirect to homepage or dashboard
+        }
+    }, 1000);
+}

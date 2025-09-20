@@ -1,31 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DearJournal Studio - Modern WordPad</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/studio.css' %}">
 </head>
+
 <body>
-    <div class="container">
+    <div class="container"> 
         <!-- Enhanced Header -->
         <header class="header">
             <div class="logo">
-                <img src="/dear_journal_app/static/images/logo.png" alt="Logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
             </div>
-            
+
             <div class="header-center">
                 <div class="file-info">
                     <span id="fileName">Untitled Document</span>
                     <span id="wordCount">0 words</span>
                 </div>
             </div>
-            
+
             <div class="action">
                 <a href="#" class="action-btn">
-                    <img src="https://img.icons8.com/fluency/48/globe.png" alt="Web" width="16" height="16" style="margin-right: 8px;">
+                    <img src="https://img.icons8.com/fluency/48/globe.png" alt="Web" width="16" height="16"
+                        style="margin-right: 8px;">
                     Webpage
                 </a>
             </div>
@@ -42,7 +45,8 @@
                             <img src="https://img.icons8.com/fluency/48/add-file.png" alt="New" width="20" height="20">
                         </button>
                         <button id="openBtn" class="toolbar-btn" title="Open File">
-                            <img src="https://img.icons8.com/fluency/48/opened-folder.png" alt="Open" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/opened-folder.png" alt="Open" width="20"
+                                height="20">
                         </button>
                         <button id="saveBtn" class="toolbar-btn" title="Save Document">
                             <img src="https://img.icons8.com/fluency/48/save.png" alt="Save" width="20" height="20">
@@ -84,7 +88,7 @@
                             <option value="Calibri">Calibri</option>
                             <option value="Helvetica">Helvetica</option>
                         </select>
-                        
+
                         <select id="fontSize" class="toolbar-select">
                             <option value="10px">10</option>
                             <option value="12px">12</option>
@@ -105,10 +109,12 @@
                             <img src="https://img.icons8.com/fluency/48/italic.png" alt="Italic" width="20" height="20">
                         </button>
                         <button id="underlineBtn" class="toolbar-btn" title="Underline">
-                            <img src="https://img.icons8.com/fluency/48/underline.png" alt="Underline" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/underline.png" alt="Underline" width="20"
+                                height="20">
                         </button>
                         <button id="strikeBtn" class="toolbar-btn" title="Strikethrough">
-                            <img src="https://img.icons8.com/fluency/48/strikethrough.png" alt="Strike" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/strikethrough.png" alt="Strike" width="20"
+                                height="20">
                         </button>
                         <div class="color-picker-wrapper" title="Text Color">
                             <input type="color" id="textColor" class="color-picker" value="#000000">
@@ -126,27 +132,34 @@
                 <div class="toolbar-group">
                     <div class="toolbar-row">
                         <button id="alignLeftBtn" class="toolbar-btn active" title="Align Left">
-                            <img src="https://img.icons8.com/fluency/48/align-left.png" alt="Left" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/align-left.png" alt="Left" width="20"
+                                height="20">
                         </button>
                         <button id="alignCenterBtn" class="toolbar-btn" title="Center">
-                            <img src="https://img.icons8.com/fluency/48/align-center.png" alt="Center" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/align-center.png" alt="Center" width="20"
+                                height="20">
                         </button>
                         <button id="alignRightBtn" class="toolbar-btn" title="Align Right">
-                            <img src="https://img.icons8.com/fluency/48/align-right.png" alt="Right" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/align-right.png" alt="Right" width="20"
+                                height="20">
                         </button>
                         <button id="justifyBtn" class="toolbar-btn" title="Justify">
-                            <img src="https://img.icons8.com/fluency/48/align-justify.png" alt="Justify" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/align-justify.png" alt="Justify" width="20"
+                                height="20">
                         </button>
                     </div>
                     <div class="toolbar-row">
                         <button id="bulletBtn" class="toolbar-btn" title="Bullet List">
-                            <img src="https://img.icons8.com/fluency/48/bulleted-list.png" alt="Bullets" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/bulleted-list.png" alt="Bullets" width="20"
+                                height="20">
                         </button>
                         <button id="numberBtn" class="toolbar-btn" title="Numbered List">
-                            <img src="https://img.icons8.com/fluency/48/numbered-list.png" alt="Numbers" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/numbered-list.png" alt="Numbers" width="20"
+                                height="20">
                         </button>
                         <button id="outdentBtn" class="toolbar-btn" title="Decrease Indent">
-                            <img src="https://img.icons8.com/fluency/48/outdent.png" alt="Outdent" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/outdent.png" alt="Outdent" width="20"
+                                height="20">
                         </button>
                         <button id="indentBtn" class="toolbar-btn" title="Increase Indent">
                             <img src="https://img.icons8.com/fluency/48/indent.png" alt="Indent" width="20" height="20">
@@ -202,7 +215,8 @@
                             <img src="https://img.icons8.com/fluency/48/trash.png" alt="Clear" width="20" height="20">
                         </button>
                         <button id="fullscreenBtn" class="toolbar-btn" title="Fullscreen">
-                            <img src="https://img.icons8.com/fluency/48/full-screen.png" alt="Fullscreen" width="20" height="20">
+                            <img src="https://img.icons8.com/fluency/48/full-screen.png" alt="Fullscreen" width="20"
+                                height="20">
                         </button>
                     </div>
                 </div>
@@ -211,9 +225,13 @@
 
         <!-- Editor Area -->
         <div class="editor-container">
-            <div id="editor" class="editor" contenteditable="true" spellcheck="true" data-placeholder="Welcome to DearJournal Studio! Start typing your masterpiece here...">
+            <div id="editor" class="editor" contenteditable="true" spellcheck="true"
+                data-placeholder="Welcome to DearJournal Studio! Start typing your masterpiece here...">
             </div>
         </div>
+
+        <!-- Popup Modal -->
+       
 
         <!-- Enhanced Status Bar -->
         <div class="status-bar">
@@ -243,9 +261,11 @@
 
     <!-- Floating Action Button -->
     <button class="fab" id="fabBtn" title="Quick Actions">
-        <img src="https://kindledspirits.blog/wp-content/uploads/2020/11/1609910dfd9d4fed121026787cde1183-1.jpg" alt="Magic" width="30px" height="30px">
+        <img src="https://kindledspirits.blog/wp-content/uploads/2020/11/1609910dfd9d4fed121026787cde1183-1.jpg"
+            alt="Magic" width="30px" height="30px">
     </button>
 
     <script src="{% static 'js/studio.js' %}"></script>
 </body>
+
 </html>

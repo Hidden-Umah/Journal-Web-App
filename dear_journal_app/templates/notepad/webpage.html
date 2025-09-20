@@ -16,7 +16,8 @@
         </div>
         <div class="actions">
             <div class="logout-link">
-                <a href="{% url 'signoutt' %}" class="btn">Logout</a>
+                <a href="{% url 'signoutt' %}">Logout</a>
+
             </div>
         </div>
     </header>
@@ -26,21 +27,39 @@
             <div class="hero">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <!-- Got rid of the "strong" and made the font-weight bold instead. 
-                        Defined h1 fonts and sizes in index.css 
-                        Also got rid of all <br> and defined max width on .hero-title css
-                        -->
                         <h1 class="hero-title">
                             Welcome {{ user.username }}
                         </h1>
-                        <!-- Redirecting sign up button to signup.html using django on next line -->
                         <a href="{% url 'studio' %}">
-                            <button class="btn-cta"> Start writing →</button>
+                            <button class="btn-cta">Start writing →</button>
                         </a>
-
-                        <a href="{% url 'profile' %}" class="btn btn-primary">
-                            Profile
-                        </a>
+                        <!-- New Features Section -->
+                        <div class="features-list">
+                            <h2 class="features-title">Features</h2>
+                            <ul>
+                                <li>📝 Create and edit journals in a modern studio</li>
+                                <li>🔒 Your notes are private and secure</li>
+                                <li>📅 Track your writing streak</li>
+                                <li>🌙 Dark mode for night writing</li>
+                                <li>📤 Export your journals anytime</li>
+                                <li>🎨 Rich text formatting and emojis</li>
+                            </ul>
+                        </div>
+                        <!-- End Features Section -->
+                        <!-- Sourced Images Section -->
+                        <div class="feature-images" style="margin-top: 32px;">
+                            <img src="{% static 'images/desk-writing.jpg' %}" alt="Writing at a desk" style="width:120px; border-radius:10px; margin-right:10px;">
+                            <img src="{% static 'images/mobile-journal.jpg' %}" alt="Journaling on mobile" style="width:120px; border-radius:10px; margin-right:10px;">
+                            <img src="{% static 'images/night-mode.jpg' %}" alt="Night mode journaling" style="width:120px; border-radius:10px;">
+                        </div>
+                        <!-- End Images Section -->
+                        <!-- Delete Account Button -->
+                        <form method="post" action="{% url 'delete_account' %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">
+                                Delete Account
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -51,7 +70,85 @@
                     </div>
                 </div>
             </div>
+        </div>
     </main>
-</body>
 
+    <!-- Modern Footer (copied from index.html) -->
+    <footer class="modern-footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>
+            Dear Journal is a modern space for capturing your thoughts, ideas,
+            and daily reflections. Simple, secure, and beautifully designed —
+            your personal stories, always at your fingertips.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="#">Writing Studio</a></li>
+            <li><a href="#">Get started </a></li>
+            <li><a href="#">login</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#" title="Twitter"
+              ><svg width="24" height="24" fill="currentColor">
+                <circle cx="12" cy="12" r="10" fill="#1da1f2" />
+                <text
+                  x="12"
+                  y="17"
+                  font-size="14"
+                  text-anchor="middle"
+                  fill="#fff"
+                >
+                  t
+                </text>
+              </svg></a
+            >
+            <a href="#" title="Facebook"
+              ><svg width="24" height="24" fill="currentColor">
+                <circle cx="12" cy="12" r="10" fill="#4267B2" />
+                <text
+                  x="12"
+                  y="17"
+                  font-size="14"
+                  text-anchor="middle"
+                  fill="#fff"
+                >
+                  f
+                </text>
+              </svg></a
+            >
+            <a href="#" title="Instagram"
+              ><svg width="24" height="24" fill="currentColor">
+                <circle cx="12" cy="12" r="10" fill="#E1306C" />
+                <text
+                  x="12"
+                  y="17"
+                  font-size="14"
+                  text-anchor="middle"
+                  fill="#fff"
+                >
+                  i
+                </text>
+              </svg></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Dear Journal. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete your account? This action cannot be undone!");
+        }
+    </script>
+</body>
 </html>

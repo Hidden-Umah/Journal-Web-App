@@ -132,7 +132,159 @@ body {
     border-top: 1px solid #eee;
 }
 
-/* Responsive */
+/* Modern Footer Styles (copied from index.css) */
+.modern-footer {
+    background: #DAF0EE;
+    color: #202030;
+    padding: 40px 0 0 0;
+    font-size: 16px;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.footer-section {
+    flex: 1 1 220px;
+    margin: 0 20px 30px 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #048BA8;
+    border-bottom: none;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #202030;
+    transition: color 0.2s;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.footer-section ul li a:hover {
+    background: #048BA8;
+    color: #DAF0EE;
+}
+
+.footer-socials a {
+    display: inline-block;
+    margin-right: 12px;
+    transition: transform 0.2s;
+    background: #048aa800;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.footer-socials a:hover {
+    transform: scale(1.2);
+    background: #202030;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 18px 0 10px 0;
+    background: #048BA8;
+    font-size: 15px;
+    color: #DAF0EE;
+    letter-spacing: 1px;
+    border-top: 1px solid #048BA8;
+    margin-top: 10px;
+}
+
+/* Feature Images Section */
+.feature-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+.feature-images img {
+    width: 120px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(4,139,168,0.10);
+    object-fit: cover;
+}
+
+/* Features List and Hero Text Styles */
+.features-list {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(4,139,168,0.07);
+    padding: 28px 24px 18px 24px;
+    margin: 32px 0 18px 0;
+    max-width: 420px;
+    width: 100%;
+    transition: box-shadow 0.2s;
+}
+
+.features-list:hover {
+    box-shadow: 0 6px 24px #048ba81a;
+}
+
+.features-title {
+    font-size: 22px;
+    color: #048BA8;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.features-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    font-size: 16px;
+    color: #202030;
+    margin-bottom: 10px;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.features-list li:last-child {
+    margin-bottom: 0;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    background: linear-gradient(90deg, #DAF0EE 60%, #fff 100%);
+    border-radius: 18px;
+    padding: 36px 32px 28px 32px;
+    box-shadow: 0 4px 24px rgba(4,139,168,0.06);
+    margin-bottom: 18px;
+    max-width: 500px;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .hero {
         grid-template-columns: 1fr;
@@ -146,4 +298,24 @@ body {
     .hero-image img {
         max-width: 250px;
     }
+
+    .features-list, .hero-text {
+        max-width: 100%;
+        padding: 18px 10px;
+    }
+}
+
+
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
 }
