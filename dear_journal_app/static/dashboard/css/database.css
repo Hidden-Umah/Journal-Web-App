@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
+body, .dashboard {
+    background: #DAF0EE;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f5faff;
@@ -5,9 +15,30 @@ body {
   padding: 20px;
 }
 
-.dashboard .generalInfo {
-  max-width: 1200px;
-  margin: auto;
+.dashboard {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-header {
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.dashboard-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #048BA8;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0;
 }
 
 .heading {
@@ -20,24 +51,61 @@ body {
 }
 
 .dashboard-actions {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+
+.dashboard-actions {
   margin-top: 10px;
 }
 
 .dashboard-btn {
-  background: #0073e6;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: 0.3s;
+    background: #048BA8;
+    color: #DAF0EE;
+    padding: 10px 26px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(4,139,168,0.08);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
 }
 
-.dashboard-btn:hover {
-  background: #005bb5;
+.dashboard-btn:hover, .dashboard-btn:focus {
+    background: #202030;
+    color: #DAF0EE;
+    box-shadow: 0 4px 16px #048ba833;
 }
 
 .dashboard-btn-alt {
-  background: #005bb5;
+    background: #202030;
+    color: #DAF0EE;
+}
+
+.dashboard-btn-alt:hover, .dashboard-btn-alt:focus {
+    background: #048BA8;
+    color: #DAF0EE;
+}
+
+.btn-delete {
+    background: #e74c3c !important;
+    color: #fff !important;
+    padding: 6px 14px !important;
+    font-size: 0.97rem;
+    border-radius: 5px;
+    margin: 0;
+    box-shadow: none;
+}
+
+.btn-delete:hover {
+    background: #c0392b !important;
+    color: #fff !important;
 }
 
 .stats {
@@ -67,29 +135,107 @@ body {
   color: #0073e6;
 }
 
+.dashboard-cards {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.dashboard-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(4,139,168,0.07), 0 1.5px 6px rgba(32,32,48,0.04);
+    padding: 32px 24px 24px 24px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dashboard-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #048BA8;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card-summary {
+    font-size: 1.08rem;
+    color: #202030;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    background: #f9fafb;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0;
+    font-size: 15px;
 }
 
-table th,
-table td {
-  padding: 10px;
-  border: 1px solid #b3d9ff;
-  text-align: left;
+th, td {
+    border: 1px solid #e3e6ea;
+    padding: 12px 10px;
+    font-size: 15px;
+    text-align: left;
 }
 
-table th {
-  background: #0073e6;
-  color: white;
+th {
+    background-color: #DAF0EE;
+    font-weight: bold;
+    color: #048BA8;
+    letter-spacing: 0.5px;
 }
 
-table tr:nth-child(even) {
-  background: #f0f8ff;
+tr:nth-child(even) {
+    background: #f3f4f6;
+}
+
+tr:hover {
+    background: #e6f7fa;
+    transition: background 0.2s;
 }
 
 .empty-row {
-  text-align: center;
-  color: gray;
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+}
+
+img[alt="Profile"] {
+    border-radius: 50%;
+    border: 2px solid #048BA8;
+    box-shadow: 0 2px 8px rgba(4,139,168,0.10);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .dashboard-header, .dashboard-cards {
+        max-width: 98vw;
+        padding: 0 8px;
+    }
+    .dashboard-card {
+        padding: 18px 6px 14px 6px;
+    }
+    th, td {
+        font-size: 13px;
+        padding: 8px 6px;
+    }
+}
+@media (max-width: 600px) {
+    .dashboard {
+        padding: 12px 0;
+    }
+    .dashboard-header h2 {
+        font-size: 1.2rem;
+    }
+    .dashboard-card h3 {
+        font-size: 1.05rem;
+    }
 }

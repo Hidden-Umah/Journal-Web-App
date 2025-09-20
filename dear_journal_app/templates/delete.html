@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Account</title>
+</head>
+<body>
+    <h2>Delete Account</h2>
+    <p>Are you sure you want to delete your account <strong>{{ client.username }}</strong>? This action cannot be undone.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" style="color:white; background:red; padding:10px; border:none; border-radius:5px;">
+            Yes, Delete My Account
+        </button>
+        <a href="{% url 'profile' %}">Cancel</a>
+    </form>
+</body>
+</html>

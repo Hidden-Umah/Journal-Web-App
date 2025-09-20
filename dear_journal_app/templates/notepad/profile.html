@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ client.username }}'s Profile</title>
+    <link rel="stylesheet" href="{% static 'notepad/css/profile.css' %}" />
+  </head>
+  <body>
+    <section class="profile">
+      <h2>Welcome, {{ client.username }}</h2>
+
+      <div class="profile-info">
+        <img
+          src="{{ client.profile_picture.url }}"
+          alt="Profile Picture"
+          class="profile-pic"
+        />
+        <p><strong>Email:</strong> {{ client.email }}</p>
+      </div>
+
+      <h3>Your Journals</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date Created</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for journal in journals %}
+          <tr>
+            <td>{{ journal.id }}</td>
+            <td>{{ journal.title }}</td>
+            <td>{{ journal.created_at|date:"Y-m-d" }}</td>
+            <td>{{ journal.status }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" style="text-align: center">No journals yet.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="actions">
+        <form method="POST" action="{% url 'delete_account' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">
+            Delete My Account
+          </button>
+        </form>
+
+        <a href="{% url 'delete_account' %}" class="btn-danger"
+          >Delete Account</a
+        >
+        <a href="{% url 'logout' %}" class="btn">Logout</a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,14 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Client
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-from django.contrib.auth.models import User
-from .models import Journal, Client
-
-
+from .models import Client, Journal
 
 # ----------------------------
 # Landing Page
@@ -16,67 +10,54 @@ from .models import Journal, Client
 def landing(request):
     return render(request, "index.html")
 
-
 # ----------------------------
-# Client Pages (requires login)
+# Session Helper (for Clients)
 # ----------------------------
 def check_client_session(request):
-    """Helper to check if client is logged in"""
-    return request.session.get("client_id")
+    """Return True if a client is logged in via session."""
+    return request.session.get("client_id") is not None
 
-@login_required
+# ----------------------------
+# Client Pages
+# ----------------------------
 def webpage_view(request):
+    if not check_client_session(request):
+        return redirect("signin")
     return render(request, "notepad/webpage.html", {
-        "user": request.user
+        "client": request.session.get("client_username")
     })
 
-
-@login_required
 def studio_view(request):
     if not check_client_session(request):
         return redirect("signin")
-    return render(request, "notepad/studio.html")
+    return render(request, "notepad/studio.html", {
+        "client": request.session.get("client_username")
+    })
 
+def notepad_view(request):
+    if not check_client_session(request):
+        return redirect("signin")
+    return render(request, "notepad/notepad.html", {
+        "client": request.session.get("client_username")
+    })
 
 # ----------------------------
-# Admin Pages
+# Admin Pages (requires Django User login)
 # ----------------------------
-
 def dashboard_view(request):
     return render(request, "dashboard/dashboard.html")
 
-
-
 def clients(request):
-    return render(request, "dashboard/clients.html")
-
-
-
-
-from .models import Journal
-
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from .models import Journal
-
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from .models import Journal
-
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from .models import Client, Journal  # import Client + Journal
+    clients = Client.objects.all()
+    return render(request, "dashboard/clients.html", {"clients": clients})
 
 def database(request):
-    # Superusers (admins)
+    # Admins
     admins = User.objects.filter(is_superuser=True)
-
-    # Clients (your custom model)
+    # Clients
     clients = Client.objects.all()
-
-    # Journals (linked to users for now, can be updated to link to Client if you prefer)
+    # Journals
     journals = Journal.objects.all()
-
     context = {
         "admins": admins,
         "clients": clients,
@@ -87,8 +68,12 @@ def database(request):
     }
     return render(request, "dashboard/database.html", context)
 
-
-
+@login_required
+def delete_client(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    client.delete()
+    messages.success(request, f"Client '{client.username}' deleted successfully.")
+    return redirect("database")
 
 # ----------------------------
 # Client Authentication
@@ -122,9 +107,8 @@ def signup(request):
 
     return render(request, "signup.html")
 
-
 def signin(request):
-    # If already logged in, go to webpage
+    # If already logged in, go to client webpage
     if check_client_session(request):
         return redirect("webpage")
 
@@ -146,26 +130,41 @@ def signin(request):
 
     return render(request, "signin.html")
 
-
 def logout_view(request):
     # Clear session and redirect to landing page
     request.session.flush()
     messages.success(request, "You have been logged out successfully!")
     return redirect("landing")
 
+# ----------------------------
+# Client Profile
+# ----------------------------
+def profile_view(request):
+    if not check_client_session(request):
+        return redirect("signin")
 
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-
-@login_required  # ensures only logged-in users can access
-def notepad_view(request):
-    return render(request, "studio.html")  # or "notepad.html" if that's the template
-
-
-from django.shortcuts import get_object_or_404
-
-def delete_client(request, client_id):
+    client_id = request.session.get("client_id")
     client = get_object_or_404(Client, id=client_id)
-    client.delete()
-    messages.success(request, f"Client '{client.username}' deleted successfully.")
-    return redirect("database")
+
+    # Show journals linked to this client
+    journals = Journal.objects.filter(client=client)
+
+    return render(request, "notepad/profile.html", {
+        "client": client,
+        "journals": journals
+    })
+
+def delete_account(request):
+    if not check_client_session(request):
+        return redirect("signin")
+
+    client_id = request.session.get("client_id")
+    client = get_object_or_404(Client, id=client_id)
+
+    if request.method == "POST":
+        client.delete()
+        request.session.flush()
+        messages.success(request, "Your account has been deleted permanently.")
+        return redirect("landing")
+
+    return render(request, "notepad/delete_account.html", {"client": client})
